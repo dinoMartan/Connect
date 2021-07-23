@@ -11,6 +11,12 @@
 		31E86D9E26AABF0000A96947 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86D9D26AABF0000A96947 /* SceneDelegate.swift */; };
 		31E86DA526AABF0200A96947 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31E86DA426AABF0200A96947 /* Assets.xcassets */; };
 		31E86DA826AABF0200A96947 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31E86DA626AABF0200A96947 /* LaunchScreen.storyboard */; };
+		31E86DF026AAC97F00A96947 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31E86DEF26AAC97F00A96947 /* Authentication.storyboard */; };
+		31E86DF326AAC99A00A96947 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86DF226AAC99A00A96947 /* LoginViewController.swift */; };
+		31E86DF726AAC9D500A96947 /* StoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86DF626AAC9D500A96947 /* StoryboardExtension.swift */; };
+		31E86DFA26AACE6B00A96947 /* LoginNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86DF926AACE6B00A96947 /* LoginNavigationViewController.swift */; };
+		31E86DFD26AAD15300A96947 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86DFC26AAD15300A96947 /* RegisterViewController.swift */; };
+		31E86E0026AAD1D900A96947 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86DFF26AAD1D900A96947 /* UITextFieldExtension.swift */; };
 		499B0FBE388EA68C287508E3 /* Pods_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF331DFEB7151D9D9BA7EC9 /* Pods_Connect.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +29,12 @@
 		31E86DA426AABF0200A96947 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31E86DA726AABF0200A96947 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31E86DA926AABF0200A96947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31E86DEF26AAC97F00A96947 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		31E86DF226AAC99A00A96947 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		31E86DF626AAC9D500A96947 /* StoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardExtension.swift; sourceTree = "<group>"; };
+		31E86DF926AACE6B00A96947 /* LoginNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationViewController.swift; sourceTree = "<group>"; };
+		31E86DFC26AAD15300A96947 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		31E86DFF26AAD1D900A96947 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		35EB784B9E5DC9635B0E0F43 /* Pods-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.release.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +101,7 @@
 		31E86DCB26AAC0F200A96947 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				31E86DEE26AAC96C00A96947 /* Authentication */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -96,8 +109,29 @@
 		31E86DCD26AAC0F800A96947 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				31E86DF526AAC9BB00A96947 /* Extensions */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		31E86DEE26AAC96C00A96947 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				31E86DEF26AAC97F00A96947 /* Authentication.storyboard */,
+				31E86DF226AAC99A00A96947 /* LoginViewController.swift */,
+				31E86DFC26AAD15300A96947 /* RegisterViewController.swift */,
+				31E86DF926AACE6B00A96947 /* LoginNavigationViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		31E86DF526AAC9BB00A96947 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				31E86DF626AAC9D500A96947 /* StoryboardExtension.swift */,
+				31E86DFF26AAD1D900A96947 /* UITextFieldExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		675E44562AEF1DC2B95F3D60 /* Pods */ = {
@@ -176,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31E86DF026AAC97F00A96947 /* Authentication.storyboard in Resources */,
 				31E86DA826AABF0200A96947 /* LaunchScreen.storyboard in Resources */,
 				31E86DA526AABF0200A96947 /* Assets.xcassets in Resources */,
 			);
@@ -230,8 +265,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31E86DF326AAC99A00A96947 /* LoginViewController.swift in Sources */,
 				31E86D9C26AABF0000A96947 /* AppDelegate.swift in Sources */,
+				31E86E0026AAD1D900A96947 /* UITextFieldExtension.swift in Sources */,
+				31E86DF726AAC9D500A96947 /* StoryboardExtension.swift in Sources */,
+				31E86DFD26AAD15300A96947 /* RegisterViewController.swift in Sources */,
 				31E86D9E26AABF0000A96947 /* SceneDelegate.swift in Sources */,
+				31E86DFA26AACE6B00A96947 /* LoginNavigationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
