@@ -7,6 +7,24 @@
 
 import UIKit
 
+// Source: https://github.com/firebase/quickstart-ios/blob/master/authentication/LegacyAuthQuickstart/AuthenticationExampleSwift/UIViewController.swift
+
+private class SaveAlertHandle {
+    static var alertHandle: UIAlertController?
+
+    class func set(_ handle: UIAlertController) {
+      alertHandle = handle
+    }
+
+    class func clear() {
+      alertHandle = nil
+    }
+
+    class func get() -> UIAlertController? {
+      return alertHandle
+    }
+  }
+
 extension UIViewController {
     
     /*! @fn showTextInputPromptWithMessage
@@ -30,5 +48,35 @@ extension UIViewController {
         prompt.addAction(okAction)
         present(prompt, animated: true, completion: nil)
     }
+    
+    /*! @fn showSpinner
+       @brief Shows the please wait spinner.
+       @param completion Called after the spinner has been hidden.
+       */
+      func showSpinner(_ completion: (() -> Void)?) {
+        let alertController = UIAlertController(title: nil, message: "Please Wait...\n\n\n\n",
+                                                preferredStyle: .alert)
+        SaveAlertHandle.set(alertController)
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.color = UIColor(ciColor: .black)
+        spinner.center = CGPoint(x: alertController.view.frame.midX,
+                                 y: alertController.view.frame.midY)
+        spinner.autoresizingMask = [.flexibleBottomMargin, .flexibleTopMargin,
+                                    .flexibleLeftMargin, .flexibleRightMargin]
+        spinner.startAnimating()
+        alertController.view.addSubview(spinner)
+        present(alertController, animated: true, completion: completion)
+      }
+
+      /*! @fn hideSpinner
+       @brief Hides the please wait spinner.
+       @param completion Called after the spinner has been hidden.
+       */
+      func hideSpinner(_ completion: (() -> Void)?) {
+        if let controller = SaveAlertHandle.get() {
+          SaveAlertHandle.clear()
+          controller.dismiss(animated: true, completion: completion)
+        }
+      }
     
 }

@@ -15,10 +15,25 @@ final class CurrentUser {
     
     static let shared = CurrentUser()
     
+    //MARK: - Private properties
+    
+    private let firebaseAuth = Auth.auth()
+    private var user: User? {
+        firebaseAuth.currentUser
+    }
+    
     //MARK: - Public methods
     
+    func getCurrentUser() -> User? {
+        return user
+    }
+    
+    func userSignedIn() -> Bool {
+        if user == nil { return false }
+        else { return true }
+    }
+    
     func signOut(viewController: UIViewController) {
-        let firebaseAuth = Auth.auth()
         var success = true
         do {
             try firebaseAuth.signOut()

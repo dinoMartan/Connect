@@ -18,27 +18,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         FirebaseApp.configure()
         let window = UIWindow(windowScene: scene)
-        guard let loginNavigationViewController = UIStoryboard.getViewController(viewControllerType: LoginNavigationViewController.self, from: .Authentication) else { return }
-        window.rootViewController = loginNavigationViewController
+        
+        if CurrentUser.shared.userSignedIn() {
+            guard let navigationTabBarViewController = UIStoryboard.getViewController(viewControllerType: NavigationTabBarViewController.self, from: .Navigation) else { return }
+            window.rootViewController = navigationTabBarViewController
+        }
+        else {
+            guard let loginNavigationViewController = UIStoryboard.getViewController(viewControllerType: LoginNavigationViewController.self, from: .Authentication) else { return }
+            window.rootViewController = loginNavigationViewController
+        }
+        
         window.makeKeyAndVisible()
         self.window = window
     }
-    
-    /*
-    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        guard let url = URLContexts.first?.url else {
-            return
-        }
-
-        ApplicationDelegate.shared.application(
-            UIApplication.shared,
-            open: url,
-            sourceApplication: nil,
-            annotation: [UIApplication.OpenURLOptionsKey.annotation]
-        )
-    }
-    */
-    
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
