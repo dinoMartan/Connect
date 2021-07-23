@@ -18,11 +18,12 @@ class LoginViewController: UIViewController {
     
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
-    @IBOutlet private weak var facebookLoginButton: FBLoginButton!
+    @IBOutlet private weak var facebookLoginButton: UIButton!
     
     //MARK: - Private properties
     
     var provider: OAuthProvider?
+    let fbLoginButton = FBLoginButton()
     
     //MARK: - Lifecycle
 
@@ -46,7 +47,9 @@ private extension LoginViewController {
     //MARK: - FacebookLoginButton configuraton
     
     private func configureFacebookLoginButton() {
-        facebookLoginButton.delegate = self
+        fbLoginButton.isHidden = true
+        view.addSubview(fbLoginButton)
+        fbLoginButton.delegate = self
     }
 
 }
@@ -68,6 +71,10 @@ extension LoginViewController {
             }
             self.sendToApp()
         }
+    }
+    
+    @IBAction func didTapFacebookLoginButton(_ sender: Any) {
+        fbLoginButton.sendActions(for: .touchUpInside)
     }
     
     @IBAction func didTapLoginWithGoogleButton(_ sender: Any) {

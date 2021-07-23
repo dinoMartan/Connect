@@ -61,7 +61,7 @@
                                             <action selector="didTapLoginButton:" destination="hY0-DU-2qV" eventType="touchUpInside" id="MxX-xz-CS5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39j-r4-UYP" customClass="FBSDKLoginButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39j-r4-UYP">
                                         <rect key="frame" x="0.0" y="72" width="314" height="55"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <constraints>
@@ -70,6 +70,9 @@
                                         <state key="normal" title="Facebook">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapFacebookLoginButton:" destination="hY0-DU-2qV" eventType="touchUpInside" id="gcA-D3-by5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70E-jn-6dc">
                                         <rect key="frame" x="0.0" y="144" width="314" height="55"/>
@@ -123,7 +126,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="SJA-X5-Ff2" id="CKf-Tw-tWf"/>
-                        <outlet property="facebookLoginButton" destination="39j-r4-UYP" id="suK-Mp-vBd"/>
+                        <outlet property="facebookLoginButton" destination="39j-r4-UYP" id="sAv-r8-OEz"/>
                         <outlet property="passwordTextField" destination="aPm-PG-Y2z" id="V3z-1r-QYm"/>
                     </connections>
                 </viewController>
