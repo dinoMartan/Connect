@@ -17,6 +17,10 @@
 		31E86DFA26AACE6B00A96947 /* LoginNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86DF926AACE6B00A96947 /* LoginNavigationViewController.swift */; };
 		31E86DFD26AAD15300A96947 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86DFC26AAD15300A96947 /* RegisterViewController.swift */; };
 		31E86E0026AAD1D900A96947 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86DFF26AAD1D900A96947 /* UITextFieldExtension.swift */; };
+		31E86E0426AAD35E00A96947 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31E86E0326AAD35E00A96947 /* GoogleService-Info.plist */; };
+		31E86E2026AAD52D00A96947 /* Alerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86E1F26AAD52D00A96947 /* Alerter.swift */; };
+		31E86E5C26AAE48C00A96947 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86E5B26AAE48C00A96947 /* UIViewControllerExtension.swift */; };
+		31E86E9F26AAF27F00A96947 /* FacebookLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86E9E26AAF27F00A96947 /* FacebookLoginButton.swift */; };
 		499B0FBE388EA68C287508E3 /* Pods_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF331DFEB7151D9D9BA7EC9 /* Pods_Connect.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +39,10 @@
 		31E86DF926AACE6B00A96947 /* LoginNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationViewController.swift; sourceTree = "<group>"; };
 		31E86DFC26AAD15300A96947 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		31E86DFF26AAD1D900A96947 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		31E86E0326AAD35E00A96947 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		31E86E1F26AAD52D00A96947 /* Alerter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerter.swift; sourceTree = "<group>"; };
+		31E86E5B26AAE48C00A96947 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		31E86E9E26AAF27F00A96947 /* FacebookLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginButton.swift; sourceTree = "<group>"; };
 		35EB784B9E5DC9635B0E0F43 /* Pods-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.release.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +94,7 @@
 				31E86D9D26AABF0000A96947 /* SceneDelegate.swift */,
 				31E86DA626AABF0200A96947 /* LaunchScreen.storyboard */,
 				31E86DA926AABF0200A96947 /* Info.plist */,
+				31E86E0326AAD35E00A96947 /* GoogleService-Info.plist */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -109,6 +118,7 @@
 		31E86DCD26AAC0F800A96947 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				31E86E1E26AAD52500A96947 /* Alerter */,
 				31E86DF526AAC9BB00A96947 /* Extensions */,
 			);
 			path = Common;
@@ -121,6 +131,7 @@
 				31E86DF226AAC99A00A96947 /* LoginViewController.swift */,
 				31E86DFC26AAD15300A96947 /* RegisterViewController.swift */,
 				31E86DF926AACE6B00A96947 /* LoginNavigationViewController.swift */,
+				31E86E9E26AAF27F00A96947 /* FacebookLoginButton.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -130,8 +141,17 @@
 			children = (
 				31E86DF626AAC9D500A96947 /* StoryboardExtension.swift */,
 				31E86DFF26AAD1D900A96947 /* UITextFieldExtension.swift */,
+				31E86E5B26AAE48C00A96947 /* UIViewControllerExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		31E86E1E26AAD52500A96947 /* Alerter */ = {
+			isa = PBXGroup;
+			children = (
+				31E86E1F26AAD52D00A96947 /* Alerter.swift */,
+			);
+			path = Alerter;
 			sourceTree = "<group>";
 		};
 		675E44562AEF1DC2B95F3D60 /* Pods */ = {
@@ -211,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31E86DF026AAC97F00A96947 /* Authentication.storyboard in Resources */,
+				31E86E0426AAD35E00A96947 /* GoogleService-Info.plist in Resources */,
 				31E86DA826AABF0200A96947 /* LaunchScreen.storyboard in Resources */,
 				31E86DA526AABF0200A96947 /* Assets.xcassets in Resources */,
 			);
@@ -266,12 +287,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				31E86DF326AAC99A00A96947 /* LoginViewController.swift in Sources */,
+				31E86E9F26AAF27F00A96947 /* FacebookLoginButton.swift in Sources */,
 				31E86D9C26AABF0000A96947 /* AppDelegate.swift in Sources */,
+				31E86E5C26AAE48C00A96947 /* UIViewControllerExtension.swift in Sources */,
 				31E86E0026AAD1D900A96947 /* UITextFieldExtension.swift in Sources */,
 				31E86DF726AAC9D500A96947 /* StoryboardExtension.swift in Sources */,
 				31E86DFD26AAD15300A96947 /* RegisterViewController.swift in Sources */,
 				31E86D9E26AABF0000A96947 /* SceneDelegate.swift in Sources */,
 				31E86DFA26AACE6B00A96947 /* LoginNavigationViewController.swift in Sources */,
+				31E86E2026AAD52D00A96947 /* Alerter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
