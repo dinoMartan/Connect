@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		317D828026AB0B3500EB62EC /* AuthConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D827F26AB0B3500EB62EC /* AuthConstants.swift */; };
+		317D828626AB0DE200EB62EC /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D828526AB0DE200EB62EC /* APICaller.swift */; };
+		317D82AB26AB1C5F00EB62EC /* GithubAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D82AA26AB1C5F00EB62EC /* GithubAuthResponse.swift */; };
 		31E86D9C26AABF0000A96947 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86D9B26AABF0000A96947 /* AppDelegate.swift */; };
 		31E86D9E26AABF0000A96947 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86D9D26AABF0000A96947 /* SceneDelegate.swift */; };
 		31E86DA526AABF0200A96947 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31E86DA426AABF0200A96947 /* Assets.xcassets */; };
@@ -20,13 +23,15 @@
 		31E86E0426AAD35E00A96947 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31E86E0326AAD35E00A96947 /* GoogleService-Info.plist */; };
 		31E86E2026AAD52D00A96947 /* Alerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86E1F26AAD52D00A96947 /* Alerter.swift */; };
 		31E86E5C26AAE48C00A96947 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86E5B26AAE48C00A96947 /* UIViewControllerExtension.swift */; };
-		31E86E9F26AAF27F00A96947 /* FacebookLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86E9E26AAF27F00A96947 /* FacebookLoginButton.swift */; };
 		499B0FBE388EA68C287508E3 /* Pods_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF331DFEB7151D9D9BA7EC9 /* Pods_Connect.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0F9ABDA4BCE5C2E9C40660B4 /* Pods-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.debug.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.debug.xcconfig"; sourceTree = "<group>"; };
 		2FF331DFEB7151D9D9BA7EC9 /* Pods_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		317D827F26AB0B3500EB62EC /* AuthConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConstants.swift; sourceTree = "<group>"; };
+		317D828526AB0DE200EB62EC /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		317D82AA26AB1C5F00EB62EC /* GithubAuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAuthResponse.swift; sourceTree = "<group>"; };
 		31E86D9826AABEFF00A96947 /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31E86D9B26AABF0000A96947 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31E86D9D26AABF0000A96947 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,7 +47,6 @@
 		31E86E0326AAD35E00A96947 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		31E86E1F26AAD52D00A96947 /* Alerter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerter.swift; sourceTree = "<group>"; };
 		31E86E5B26AAE48C00A96947 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		31E86E9E26AAF27F00A96947 /* FacebookLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginButton.swift; sourceTree = "<group>"; };
 		35EB784B9E5DC9635B0E0F43 /* Pods-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.release.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +62,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		317D827E26AB0B2700EB62EC /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				317D827F26AB0B3500EB62EC /* AuthConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		317D828426AB0DD300EB62EC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				317D828526AB0DE200EB62EC /* APICaller.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		317D82A926AB1C4800EB62EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				317D82AA26AB1C5F00EB62EC /* GithubAuthResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		31E86D8F26AABEFF00A96947 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +146,9 @@
 		31E86DCD26AAC0F800A96947 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				317D82A926AB1C4800EB62EC /* Models */,
+				317D828426AB0DD300EB62EC /* Services */,
+				317D827E26AB0B2700EB62EC /* Constants */,
 				31E86E1E26AAD52500A96947 /* Alerter */,
 				31E86DF526AAC9BB00A96947 /* Extensions */,
 			);
@@ -131,7 +162,6 @@
 				31E86DF226AAC99A00A96947 /* LoginViewController.swift */,
 				31E86DFC26AAD15300A96947 /* RegisterViewController.swift */,
 				31E86DF926AACE6B00A96947 /* LoginNavigationViewController.swift */,
-				31E86E9E26AAF27F00A96947 /* FacebookLoginButton.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -287,15 +317,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				31E86DF326AAC99A00A96947 /* LoginViewController.swift in Sources */,
-				31E86E9F26AAF27F00A96947 /* FacebookLoginButton.swift in Sources */,
+				317D828026AB0B3500EB62EC /* AuthConstants.swift in Sources */,
 				31E86D9C26AABF0000A96947 /* AppDelegate.swift in Sources */,
 				31E86E5C26AAE48C00A96947 /* UIViewControllerExtension.swift in Sources */,
 				31E86E0026AAD1D900A96947 /* UITextFieldExtension.swift in Sources */,
 				31E86DF726AAC9D500A96947 /* StoryboardExtension.swift in Sources */,
 				31E86DFD26AAD15300A96947 /* RegisterViewController.swift in Sources */,
 				31E86D9E26AABF0000A96947 /* SceneDelegate.swift in Sources */,
+				317D828626AB0DE200EB62EC /* APICaller.swift in Sources */,
 				31E86DFA26AACE6B00A96947 /* LoginNavigationViewController.swift in Sources */,
 				31E86E2026AAD52D00A96947 /* Alerter.swift in Sources */,
+				317D82AB26AB1C5F00EB62EC /* GithubAuthResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

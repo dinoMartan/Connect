@@ -24,8 +24,8 @@
                                     <constraint firstAttribute="width" constant="150" id="qnK-3f-GAf"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8R6-0G-KlI">
-                                <rect key="frame" x="50" y="368" width="314" height="110"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8R6-0G-KlI">
+                                <rect key="frame" x="50" y="368" width="314" height="100"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SJA-X5-Ff2">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="45"/>
@@ -36,7 +36,7 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aPm-PG-Y2z">
-                                        <rect key="frame" x="0.0" y="65" width="314" height="45"/>
+                                        <rect key="frame" x="0.0" y="55" width="314" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="kdZ-tG-jk2"/>
                                         </constraints>
@@ -46,11 +46,14 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="ere-29-L8E">
-                                <rect key="frame" x="50" y="528" width="314" height="284"/>
+                                <rect key="frame" x="50" y="518" width="314" height="271"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFC-T5-v7q">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="58.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="55"/>
                                         <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="TvQ-VS-Wjt"/>
+                                        </constraints>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -58,19 +61,22 @@
                                             <action selector="didTapLoginButton:" destination="hY0-DU-2qV" eventType="touchUpInside" id="MxX-xz-CS5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39j-r4-UYP">
-                                        <rect key="frame" x="0.0" y="75.5" width="314" height="58"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39j-r4-UYP" customClass="FBSDKLoginButton">
+                                        <rect key="frame" x="0.0" y="72" width="314" height="55"/>
                                         <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="rEI-2r-YCv"/>
+                                        </constraints>
                                         <state key="normal" title="Facebook">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="didTapLoginWithFacebookButton:" destination="hY0-DU-2qV" eventType="touchUpInside" id="AFi-oj-gD5"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70E-jn-6dc">
-                                        <rect key="frame" x="0.0" y="150.5" width="314" height="58.5"/>
+                                        <rect key="frame" x="0.0" y="144" width="314" height="55"/>
                                         <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="rgF-ky-zmM"/>
+                                        </constraints>
                                         <state key="normal" title="Google">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -79,8 +85,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZY-xP-ogC">
-                                        <rect key="frame" x="0.0" y="226" width="314" height="58"/>
+                                        <rect key="frame" x="0.0" y="216" width="314" height="55"/>
                                         <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="xqd-ol-MTv"/>
+                                        </constraints>
                                         <state key="normal" title="Github">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -114,7 +123,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="SJA-X5-Ff2" id="CKf-Tw-tWf"/>
-                        <outlet property="facebookLoginButton" destination="39j-r4-UYP" id="TLd-JX-gKX"/>
+                        <outlet property="facebookLoginButton" destination="39j-r4-UYP" id="suK-Mp-vBd"/>
                         <outlet property="passwordTextField" destination="aPm-PG-Y2z" id="V3z-1r-QYm"/>
                     </connections>
                 </viewController>

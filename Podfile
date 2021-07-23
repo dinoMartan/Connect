@@ -27,4 +27,8 @@ target 'Connect' do
 
   pod 'SDWebImage'
 
+  # Alamofire
+
+  pod 'Alamofire'
+
 end
