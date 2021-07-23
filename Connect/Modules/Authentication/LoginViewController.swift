@@ -193,6 +193,16 @@ extension LoginViewController {
     
 }
 
+//MARK: - IBAction helper methods
+
+extension LoginViewController {
+    
+    private func sendToApp() {
+        debugPrint("Sending to app...")
+    }
+    
+}
+
 //MARK: - LoginButton Delegate -
 
 extension LoginViewController: LoginButtonDelegate {
@@ -276,14 +286,4 @@ extension LoginViewController: LoginButtonDelegate {
         //
     }
 
-}
-
-//MARK: - IBAction helper methods
-
-extension LoginViewController {
-    
-    private func sendToApp() {
-        debugPrint("Sending to app...")
-    }
-    
 }
