@@ -10,6 +10,12 @@
 		317D828026AB0B3500EB62EC /* AuthConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D827F26AB0B3500EB62EC /* AuthConstants.swift */; };
 		317D828626AB0DE200EB62EC /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D828526AB0DE200EB62EC /* APICaller.swift */; };
 		317D82AB26AB1C5F00EB62EC /* GithubAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D82AA26AB1C5F00EB62EC /* GithubAuthResponse.swift */; };
+		317D82AE26AB441800EB62EC /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D82AD26AB441800EB62EC /* UIColorExtension.swift */; };
+		317D82B226AB45E300EB62EC /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 317D82B126AB45E300EB62EC /* Navigation.storyboard */; };
+		317D82B726AB463E00EB62EC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 317D82B626AB463E00EB62EC /* Home.storyboard */; };
+		317D82BA26AB465C00EB62EC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D82B926AB465C00EB62EC /* HomeViewController.swift */; };
+		317D82BD26AB471600EB62EC /* NavigationTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D82BC26AB471600EB62EC /* NavigationTabBarViewController.swift */; };
+		317D82C126AB4CC500EB62EC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D82C026AB4CC500EB62EC /* CurrentUser.swift */; };
 		31E86D9C26AABF0000A96947 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86D9B26AABF0000A96947 /* AppDelegate.swift */; };
 		31E86D9E26AABF0000A96947 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86D9D26AABF0000A96947 /* SceneDelegate.swift */; };
 		31E86DA526AABF0200A96947 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31E86DA426AABF0200A96947 /* Assets.xcassets */; };
@@ -32,6 +38,12 @@
 		317D827F26AB0B3500EB62EC /* AuthConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConstants.swift; sourceTree = "<group>"; };
 		317D828526AB0DE200EB62EC /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		317D82AA26AB1C5F00EB62EC /* GithubAuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAuthResponse.swift; sourceTree = "<group>"; };
+		317D82AD26AB441800EB62EC /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		317D82B126AB45E300EB62EC /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
+		317D82B626AB463E00EB62EC /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		317D82B926AB465C00EB62EC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		317D82BC26AB471600EB62EC /* NavigationTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabBarViewController.swift; sourceTree = "<group>"; };
+		317D82C026AB4CC500EB62EC /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		31E86D9826AABEFF00A96947 /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31E86D9B26AABF0000A96947 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31E86D9D26AABF0000A96947 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +98,32 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		317D82B026AB45D600EB62EC /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				317D82B126AB45E300EB62EC /* Navigation.storyboard */,
+				317D82BC26AB471600EB62EC /* NavigationTabBarViewController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		317D82B526AB463500EB62EC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				317D82B626AB463E00EB62EC /* Home.storyboard */,
+				317D82B926AB465C00EB62EC /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		317D82BF26AB4CB100EB62EC /* CurrentUser */ = {
+			isa = PBXGroup;
+			children = (
+				317D82C026AB4CC500EB62EC /* CurrentUser.swift */,
+			);
+			path = CurrentUser;
+			sourceTree = "<group>";
+		};
 		31E86D8F26AABEFF00A96947 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +176,8 @@
 		31E86DCB26AAC0F200A96947 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				317D82B526AB463500EB62EC /* Home */,
+				317D82B026AB45D600EB62EC /* Navigation */,
 				31E86DEE26AAC96C00A96947 /* Authentication */,
 			);
 			path = Modules;
@@ -146,6 +186,7 @@
 		31E86DCD26AAC0F800A96947 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				317D82BF26AB4CB100EB62EC /* CurrentUser */,
 				317D82A926AB1C4800EB62EC /* Models */,
 				317D828426AB0DD300EB62EC /* Services */,
 				317D827E26AB0B2700EB62EC /* Constants */,
@@ -172,6 +213,7 @@
 				31E86DF626AAC9D500A96947 /* StoryboardExtension.swift */,
 				31E86DFF26AAD1D900A96947 /* UITextFieldExtension.swift */,
 				31E86E5B26AAE48C00A96947 /* UIViewControllerExtension.swift */,
+				317D82AD26AB441800EB62EC /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -262,6 +304,8 @@
 			files = (
 				31E86DF026AAC97F00A96947 /* Authentication.storyboard in Resources */,
 				31E86E0426AAD35E00A96947 /* GoogleService-Info.plist in Resources */,
+				317D82B226AB45E300EB62EC /* Navigation.storyboard in Resources */,
+				317D82B726AB463E00EB62EC /* Home.storyboard in Resources */,
 				31E86DA826AABF0200A96947 /* LaunchScreen.storyboard in Resources */,
 				31E86DA526AABF0200A96947 /* Assets.xcassets in Resources */,
 			);
@@ -321,12 +365,16 @@
 				31E86D9C26AABF0000A96947 /* AppDelegate.swift in Sources */,
 				31E86E5C26AAE48C00A96947 /* UIViewControllerExtension.swift in Sources */,
 				31E86E0026AAD1D900A96947 /* UITextFieldExtension.swift in Sources */,
+				317D82BA26AB465C00EB62EC /* HomeViewController.swift in Sources */,
 				31E86DF726AAC9D500A96947 /* StoryboardExtension.swift in Sources */,
+				317D82AE26AB441800EB62EC /* UIColorExtension.swift in Sources */,
+				317D82BD26AB471600EB62EC /* NavigationTabBarViewController.swift in Sources */,
 				31E86DFD26AAD15300A96947 /* RegisterViewController.swift in Sources */,
 				31E86D9E26AABF0000A96947 /* SceneDelegate.swift in Sources */,
 				317D828626AB0DE200EB62EC /* APICaller.swift in Sources */,
 				31E86DFA26AACE6B00A96947 /* LoginNavigationViewController.swift in Sources */,
 				31E86E2026AAD52D00A96947 /* Alerter.swift in Sources */,
+				317D82C126AB4CC500EB62EC /* CurrentUser.swift in Sources */,
 				317D82AB26AB1C5F00EB62EC /* GithubAuthResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

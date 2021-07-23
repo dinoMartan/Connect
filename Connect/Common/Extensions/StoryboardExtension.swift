@@ -11,8 +11,10 @@ extension UIStoryboard {
     
     enum StoryboardId: String {
         
+        case Navigation
         case Authentication
         case Home
+        
     }
     
     static func getViewController<T> (viewControllerType: T.Type, from storyboardId: StoryboardId) -> T? {

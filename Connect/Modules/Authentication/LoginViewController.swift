@@ -198,7 +198,9 @@ extension LoginViewController {
 extension LoginViewController {
     
     private func sendToApp() {
-        debugPrint("Sending to app...")
+        guard let navigationTabBarViewController = UIStoryboard.getViewController(viewControllerType: NavigationTabBarViewController.self, from: .Navigation) else { return }
+        navigationTabBarViewController.modalPresentationStyle = .fullScreen
+        present(navigationTabBarViewController, animated: true, completion: nil)
     }
     
 }
