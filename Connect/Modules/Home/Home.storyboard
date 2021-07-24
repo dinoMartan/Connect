@@ -15,16 +15,38 @@
                     <view key="view" contentMode="scaleToFill" id="lIy-Db-wII">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="swift, js, php ..." translatesAutoresizingMaskIntoConstraints="NO" id="Nve-Wq-XvC">
+                                <rect key="frame" x="20" y="140" width="374" height="56"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="F50-0R-Izy"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="1" green="0.13763228850000001" blue="0.14059450770000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Nve-Wq-XvC" firstAttribute="leading" secondItem="F50-0R-Izy" secondAttribute="leading" constant="20" id="1r8-h8-3Sr"/>
+                            <constraint firstAttribute="trailing" secondItem="Nve-Wq-XvC" secondAttribute="trailing" constant="20" id="eb2-gN-i9O"/>
+                            <constraint firstItem="Nve-Wq-XvC" firstAttribute="top" secondItem="F50-0R-Izy" secondAttribute="top" id="g9h-lW-Yr5"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wWg-US-I8w">
+                    <navigationItem key="navigationItem" title="Home" id="wWg-US-I8w">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="08X-wL-ihU">
+                            <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
                                 <action selector="didTapLogoutButton:" destination="VhY-vb-2Qe" id="XJP-7N-Yv0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="Nve-Wq-XvC" id="ZBA-yj-hlx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tmh-mt-PyI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -33,13 +55,16 @@
         <!--Home-->
         <scene sceneID="9q7-42-FGm">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6wV-HT-ehR" sceneMemberID="viewController">
+                <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="6wV-HT-ehR" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="VEL-NI-zkk"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pdw-gk-SIC">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="pdw-gk-SIC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -53,8 +78,8 @@
     </scenes>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -24,6 +24,10 @@ final class CurrentUser {
     
     //MARK: - Public methods
     
+    func getCurrentUserId() -> String? {
+        return user?.uid
+    }
+    
     func getCurrentUser() -> User? {
         return user
     }

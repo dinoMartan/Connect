@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
+import IQKeyboardManagerSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -17,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         FirebaseApp.configure()
+        IQKeyboardManager.shared.enable = true
         let window = UIWindow(windowScene: scene)
         
         if CurrentUser.shared.userSignedIn() {

@@ -13,6 +13,7 @@ class NavigationTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        selectedIndex = 1
     }
 
 }

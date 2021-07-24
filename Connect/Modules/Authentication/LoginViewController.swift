@@ -42,6 +42,7 @@ private extension LoginViewController {
     
     private func setupView() {
         configureFacebookLoginButton()
+        view.backgroundColor = .connectBackground
     }
     
     //MARK: - FacebookLoginButton configuraton

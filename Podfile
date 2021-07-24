@@ -31,4 +31,16 @@ target 'Connect' do
 
   pod 'Alamofire'
 
+  # Animations
+
+  pod 'ViewAnimator'
+
+  # Tags
+
+  pod 'WSTagsField'
+
+  # Keyboard
+
+  pod 'IQKeyboardManagerSwift'
+
 end

@@ -15,6 +15,7 @@ final class Alerter {
         case wrongCode = "Wrong code"
         case oops = "Oops"
         case success = "Success"
+        case warning = "Warning"
         
     }
 
@@ -27,6 +28,7 @@ final class Alerter {
         case wrongResponse = "We couldn't get the right response."
         case updateFailed = "Looks like update failed. Please try again."
         case dataFetchingFailed = "Looks like we couldn't fetch data. Please try again."
+        case beRespectful = "Please don't be rude and be respectful."
         
     }
 

@@ -14,6 +14,9 @@ extension UIStoryboard {
         case Navigation
         case Authentication
         case Home
+        case Conversations
+        case MyProjects
+        case ProjectEditor
         
     }
     

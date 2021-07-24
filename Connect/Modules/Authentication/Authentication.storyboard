@@ -98,7 +98,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="f2v-1s-Trq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HFC-T5-v7q" firstAttribute="top" secondItem="aPm-PG-Y2z" secondAttribute="bottom" constant="20" id="7bE-W9-HfS"/>
                             <constraint firstItem="SJA-X5-Ff2" firstAttribute="leading" secondItem="f2v-1s-Trq" secondAttribute="leading" constant="50" id="Ga2-no-0DZ"/>
@@ -117,7 +117,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="D51-K4-6VC">
                         <barButtonItem key="rightBarButtonItem" title="Register" style="done" id="5Xh-sy-37c">
-                            <color key="tintColor" red="0.99046272040000005" green="0.39921648009999999" blue="0.32694235830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
                                 <segue destination="BKD-Lh-5sp" kind="show" id="0Hm-Ue-ayC"/>
                             </connections>
@@ -191,7 +191,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eft-qM-IOj"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1cg-Tg-Cc2" firstAttribute="leading" secondItem="eft-qM-IOj" secondAttribute="leading" constant="50" id="G9T-Aa-8id"/>
                             <constraint firstItem="eft-qM-IOj" firstAttribute="trailing" secondItem="1cg-Tg-Cc2" secondAttribute="trailing" constant="50" id="TI1-ar-X0Y"/>
@@ -223,6 +223,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NXp-mD-cYg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="systemRedColor"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" systemColor="systemRedColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -240,8 +246,8 @@
         <image name="github" width="2048" height="2048"/>
         <image name="google" width="500" height="512"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

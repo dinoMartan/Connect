@@ -354,6 +354,7 @@ PODS:
     - AppAuth/Core (~> 1.4)
     - GTMSessionFetcher/Core (~> 1.5)
   - GTMSessionFetcher/Core (1.5.0)
+  - IQKeyboardManagerSwift (6.5.6)
   - leveldb-library (1.22.1)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
@@ -364,6 +365,8 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
+  - ViewAnimator (3.1.0)
+  - WSTagsField (5.4.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -374,7 +377,10 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseFirestoreSwift
   - GoogleSignIn (= 6.0.1)
+  - IQKeyboardManagerSwift
   - SDWebImage
+  - ViewAnimator
+  - WSTagsField
 
 SPEC REPOS:
   trunk:
@@ -402,10 +408,13 @@ SPEC REPOS:
     - gRPC-Core
     - GTMAppAuth
     - GTMSessionFetcher
+    - IQKeyboardManagerSwift
     - leveldb-library
     - nanopb
     - PromisesObjC
     - SDWebImage
+    - ViewAnimator
+    - WSTagsField
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -432,11 +441,14 @@ SPEC CHECKSUMS:
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
+  WSTagsField: a4e91b7d866e8c9755332ebcf8123f42f2abd4a0
 
-PODFILE CHECKSUM: fbcce2a8d63d79d6d6d0de353f6ba4b0f0b2f47f
+PODFILE CHECKSUM: ea226fb1b41716d4f91b5d606429547f0ad7bea7
 
 COCOAPODS: 1.10.1
