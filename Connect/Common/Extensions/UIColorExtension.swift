@@ -10,6 +10,7 @@ import UIKit
 extension UIColor {
     
     static var connectBackground = UIColor().hexStringToUIColor(hex: "#171717")
+    static var connectSecondBackground = UIColor().hexStringToUIColor(hex: "#545454")
     
     // Source: https://stackoverflow.com/questions/24263007/how-to-use-hex-color-values/24263296
     

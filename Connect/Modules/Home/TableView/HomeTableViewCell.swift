@@ -22,14 +22,24 @@ class HomeTableViewCell: UITableViewCell {
     //MARK: - Public properties
     
     static let identifier = "HomeTableViewCell"
+    weak var delegate: HomeTableViewCellDelegate?
+    
+    //MARK: - Private properties
+    
+    private var project: DatabaseDocument?
 
     //MARK: - Public methods
     
     func configureCell(data: DatabaseDocument) {
         guard let project = data.object as? Project else { return }
+        self.project = data
+        
+        let tapGuesture = UITapGestureRecognizer(target: self, action: #selector(didTapCell))
+        self.addGestureRecognizer(tapGuesture)
+        
         ownerImage.layer.cornerRadius = ownerImage.frame.height / 2
         cellBackgroundView.backgroundColor = .connectBackground
-        background.backgroundColor = .white
+        background.backgroundColor = .connectSecondBackground
         background.layer.cornerRadius = 20
         
         titleLabel.text = project.title
@@ -44,6 +54,17 @@ class HomeTableViewCell: UITableViewCell {
             tagString = tagString + "  " + tag
         }
         tagsLabel.text = tagString
+    }
+    
+}
+
+//MARK: - IBActions -
+
+extension HomeTableViewCell {
+    
+    @objc func didTapCell(_ sender: Any) {
+        guard let project = project else { return }
+        delegate?.didTapCell(project: project)
     }
     
 }

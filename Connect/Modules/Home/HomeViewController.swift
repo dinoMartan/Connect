@@ -27,6 +27,17 @@ class HomeViewController: UIViewController {
         setupView()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        projects.removeAll()
+        tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchProjects()
+    }
+    
 }
 
 //MARK: - Private extension -
@@ -40,7 +51,6 @@ private extension HomeViewController {
         searchBar.barTintColor = .connectBackground
         tableView.backgroundColor = .connectBackground
         searchBar.searchTextField.textColor = .white
-        fetchProjects()
         configureTableView()
         configureSearchBar()
     }
@@ -48,9 +58,9 @@ private extension HomeViewController {
     //MARK: - TableView Configuration
     
     private func configureTableView() {
-        tableView.register(UINib(nibName: HomeTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: HomeTableViewCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UINib(nibName: HomeTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: HomeTableViewCell.identifier)
     }
     
     private func hideTableView() {
@@ -74,9 +84,11 @@ private extension HomeViewController {
     //MARK: - Data
     
     private func fetchProjects() {
-        DatabaseHandler.shared.getAllDocumentsFromCollection(type: Project.self, collection: .projects) { databaseDocuments in
-            self.projects = databaseDocuments
-            self.tableView.reloadData()
+        hideTableView()
+        DatabaseHandler.shared.getAllDocumentsFromCollection(type: Project.self, collection: .projects) { [unowned self] databaseDocuments in
+            projects = databaseDocuments
+            tableView.reloadData()
+            showTableView()
         } failure: { error in
             Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: nil)
         }
@@ -95,6 +107,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier) as? HomeTableViewCell else { return UITableViewCell() }
         cell.configureCell(data: projects[indexPath.row])
+        cell.delegate = self
         return cell
     }
     
@@ -118,6 +131,19 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
+//MARK: - TableViewCell Delegate -
+
+extension HomeViewController: HomeTableViewCellDelegate {
+    
+    func didTapCell(project: DatabaseDocument) {
+        guard let projectDetailsViewController = UIStoryboard.getViewController(viewControllerType: ProjectDetailsViewController.self, from: .ProjectDetails) else { return }
+        projectDetailsViewController.project = project
+        projectDetailsViewController.modalPresentationStyle = .overFullScreen
+        present(projectDetailsViewController, animated: false, completion: nil)
+    }
+    
+}
+
 //MARK: - SearchBar Delegate -
 
 extension HomeViewController: UISearchBarDelegate {
@@ -128,11 +154,11 @@ extension HomeViewController: UISearchBarDelegate {
         if searchBar.text == "" { fetchProjects() }
         else {
             hideTableView()
-            DatabaseHandler.shared.getDataWhereArrayContains(type: Project.self, collection: .projects, whereField: .needTags, contains: searchBar.text!.lowercased()) { databaseDocuments in
-                self.projects.removeAll()
-                self.projects = databaseDocuments
-                self.tableView.reloadData()
-                self.showTableView()
+            DatabaseHandler.shared.getDataWhereArrayContains(type: Project.self, collection: .projects, whereField: .needTags, contains: searchBar.text!.lowercased()) { [unowned self] databaseDocuments in
+                projects.removeAll()
+                projects = databaseDocuments
+                tableView.reloadData()
+                showTableView()
             } failure: { error in
                 Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: nil)
             }

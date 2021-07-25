@@ -17,6 +17,7 @@ extension UIStoryboard {
         case Conversations
         case MyProjects
         case ProjectEditor
+        case ProjectDetails
         
     }
     
