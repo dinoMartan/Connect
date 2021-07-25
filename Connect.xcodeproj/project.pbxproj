@@ -41,6 +41,8 @@
 		31E86E0426AAD35E00A96947 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31E86E0326AAD35E00A96947 /* GoogleService-Info.plist */; };
 		31E86E2026AAD52D00A96947 /* Alerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86E1F26AAD52D00A96947 /* Alerter.swift */; };
 		31E86E5C26AAE48C00A96947 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E86E5B26AAE48C00A96947 /* UIViewControllerExtension.swift */; };
+		31F72B8D26AD6C7F0094892E /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F72B8B26AD6C7F0094892E /* HomeTableViewCell.swift */; };
+		31F72B8E26AD6C7F0094892E /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F72B8C26AD6C7F0094892E /* HomeTableViewCell.xib */; };
 		499B0FBE388EA68C287508E3 /* Pods_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF331DFEB7151D9D9BA7EC9 /* Pods_Connect.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,8 @@
 		31E86E0326AAD35E00A96947 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		31E86E1F26AAD52D00A96947 /* Alerter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerter.swift; sourceTree = "<group>"; };
 		31E86E5B26AAE48C00A96947 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		31F72B8B26AD6C7F0094892E /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		31F72B8C26AD6C7F0094892E /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		35EB784B9E5DC9635B0E0F43 /* Pods-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.release.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +142,7 @@
 		317D82B526AB463500EB62EC /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				31F72B8A26AD6C610094892E /* TableView */,
 				317D82B626AB463E00EB62EC /* Home.storyboard */,
 				317D82B926AB465C00EB62EC /* HomeViewController.swift */,
 			);
@@ -294,6 +299,15 @@
 			path = Alerter;
 			sourceTree = "<group>";
 		};
+		31F72B8A26AD6C610094892E /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				31F72B8B26AD6C7F0094892E /* HomeTableViewCell.swift */,
+				31F72B8C26AD6C7F0094892E /* HomeTableViewCell.xib */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		675E44562AEF1DC2B95F3D60 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +392,7 @@
 				31E7B5BF26AC1DE50062CFEC /* MyProjects.storyboard in Resources */,
 				317D82B726AB463E00EB62EC /* Home.storyboard in Resources */,
 				31E86DA826AABF0200A96947 /* LaunchScreen.storyboard in Resources */,
+				31F72B8E26AD6C7F0094892E /* HomeTableViewCell.xib in Resources */,
 				31E86DA526AABF0200A96947 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +448,7 @@
 			files = (
 				31E86DF326AAC99A00A96947 /* LoginViewController.swift in Sources */,
 				317D828026AB0B3500EB62EC /* AuthConstants.swift in Sources */,
+				31F72B8D26AD6C7F0094892E /* HomeTableViewCell.swift in Sources */,
 				31E86D9C26AABF0000A96947 /* AppDelegate.swift in Sources */,
 				315A055D26ACC35500853C6B /* Project.swift in Sources */,
 				31E7B5F326AC2A640062CFEC /* Animator.swift in Sources */,

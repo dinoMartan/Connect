@@ -17,24 +17,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="swift, js, php ..." translatesAutoresizingMaskIntoConstraints="NO" id="Nve-Wq-XvC">
-                                <rect key="frame" x="20" y="140" width="374" height="56"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="20" y="88" width="374" height="56"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2EM-g1-L8U">
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="F50-0R-Izy"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="1" green="0.13763228850000001" blue="0.14059450770000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Nve-Wq-XvC" firstAttribute="leading" secondItem="F50-0R-Izy" secondAttribute="leading" constant="20" id="1r8-h8-3Sr"/>
+                            <constraint firstItem="2EM-g1-L8U" firstAttribute="leading" secondItem="F50-0R-Izy" secondAttribute="leading" id="6Wo-OB-JZ4"/>
+                            <constraint firstItem="2EM-g1-L8U" firstAttribute="top" secondItem="Nve-Wq-XvC" secondAttribute="bottom" id="Y4m-Zc-q9P"/>
                             <constraint firstAttribute="trailing" secondItem="Nve-Wq-XvC" secondAttribute="trailing" constant="20" id="eb2-gN-i9O"/>
                             <constraint firstItem="Nve-Wq-XvC" firstAttribute="top" secondItem="F50-0R-Izy" secondAttribute="top" id="g9h-lW-Yr5"/>
+                            <constraint firstItem="F50-0R-Izy" firstAttribute="trailing" secondItem="2EM-g1-L8U" secondAttribute="trailing" id="tfw-ep-azq"/>
+                            <constraint firstItem="F50-0R-Izy" firstAttribute="bottom" secondItem="2EM-g1-L8U" secondAttribute="bottom" id="xgk-iy-RZu"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="4pS-mP-dzD" appends="YES" id="4Ls-D3-8sP"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="wWg-US-I8w">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="08X-wL-ihU">
@@ -46,9 +54,15 @@
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="Nve-Wq-XvC" id="ZBA-yj-hlx"/>
+                        <outlet property="tableView" destination="2EM-g1-L8U" id="JT7-VX-AVQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tmh-mt-PyI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4pS-mP-dzD">
+                    <connections>
+                        <action selector="didTapOutside:" destination="VhY-vb-2Qe" id="dp3-8G-Crq"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1179.7101449275362" y="84.375"/>
         </scene>
@@ -59,9 +73,13 @@
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="VEL-NI-zkk"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="pdw-gk-SIC">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pdw-gk-SIC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
