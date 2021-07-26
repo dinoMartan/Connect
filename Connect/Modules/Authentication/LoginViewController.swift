@@ -55,6 +55,20 @@ private extension LoginViewController {
     
 }
 
+//MARK: - Login helper methods
+
+private extension LoginViewController {
+    
+    private func addNewUserDetails(userDetails: UserDetails, userId: String) {
+        DatabaseHandler.shared.addDocument(object: userDetails, collection: .userDetails, documentIdType: .custom(id: userId)) {
+            //
+        } failure: { _ in
+            //
+        }
+    }
+    
+}
+
 //MARK: - IBActions -
 
 extension LoginViewController {
@@ -90,7 +104,6 @@ extension LoginViewController {
         
         // Start the sign in flow!
         GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
-            
             if let error = error {
                 hideSpinner(nil)
                 Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: nil)
@@ -166,6 +179,17 @@ extension LoginViewController {
                     hideSpinner(nil)
                     return
                 }
+                
+                if let newUser = authResult?.additionalUserInfo?.isNewUser,
+                   let userId = authResult?.user.uid
+                    {
+                    if newUser {
+                        let name = user?.profile?.name
+                        let profileImage = user?.profile?.imageURL(withDimension: 200)?.absoluteString
+                        let userDetails = UserDetails(name: name, profileImage: profileImage)
+                        addNewUserDetails(userDetails: userDetails, userId: userId)
+                    }
+                }
                 sendToApp()
             }
         }
@@ -174,6 +198,10 @@ extension LoginViewController {
     @IBAction func didTapLoginWithGithubButton(_ sender: Any) {
         showSpinner(nil)
         provider = OAuthProvider(providerID: AuthProviders.github.rawValue)
+        provider?.scopes = [
+            "user:email",
+            "read:profile"
+        ]
         provider!.getCredentialWith(nil) { credential, error in
             if error != nil {
                 self.hideSpinner(nil)
@@ -185,16 +213,22 @@ extension LoginViewController {
                         self.hideSpinner(nil)
                         Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: nil)
                     }
-                    
-                    guard let oauthCredential = authResult?.credential as? OAuthCredential else { return }
-                    guard let accessToken = oauthCredential.accessToken else { return }
-                    let headers = HTTPHeaders(["Authorization" : "token \(accessToken)"])
-                    ApiCaller.shared.getRequest(type: GithubResponse.self, apiUrl: .githubAccountDetails, headers: headers) { response in
-                        #warning("to do - add user details")
-                        self.sendToApp()
-                    } failure: { error in
-                        self.hideSpinner(nil)
-                        Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: nil)
+                    else {
+                        guard let result = authResult,
+                              let isNewUser = result.additionalUserInfo?.isNewUser else {
+                            Alerter.showOneButtonAlert(on: self, title: .error, error: nil, actionTitle: .ok, handler: nil)
+                            return
+                        }
+                        if isNewUser {
+                            guard let userId = authResult?.user.uid
+                                  else { return }
+                            let userDetails = UserDetails(name: result.user.displayName, profileImage: result.user.photoURL?.absoluteString)
+                            self.addNewUserDetails(userDetails: userDetails, userId: userId)
+                            self.sendToApp()
+                        }
+                        else {
+                            self.sendToApp()
+                        }
                     }
                 }
             }
@@ -294,6 +328,19 @@ extension LoginViewController: LoginButtonDelegate {
                 }
                 self.hideSpinner(nil)
                 return
+            }
+            if let newUser = authResult?.additionalUserInfo?.isNewUser,
+               let userId = authResult?.user.uid
+                {
+                if newUser {
+                    let name = authResult?.user.displayName
+                    var image = ""
+                    if let profileImage = authResult?.user.photoURL?.absoluteString {
+                        image = profileImage + "?access_token=\(token)"
+                    }
+                    let userDetails = UserDetails(name: name, profileImage: image)
+                    self.addNewUserDetails(userDetails: userDetails, userId: userId)
+                }
             }
             self.sendToApp()
         }

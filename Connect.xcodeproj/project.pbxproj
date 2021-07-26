@@ -48,6 +48,7 @@
 		31F72B9A26ADBE690094892E /* HomeTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F72B9926ADBE690094892E /* HomeTableViewCellDelegate.swift */; };
 		31F72B9E26AEC5F50094892E /* ProjectEditorViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F72B9D26AEC5F40094892E /* ProjectEditorViewControllerDelegate.swift */; };
 		31F72BA226AEC9080094892E /* TagConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F72BA126AEC9080094892E /* TagConverter.swift */; };
+		31F72BA626AED9630094892E /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F72BA526AED9630094892E /* UserDetails.swift */; };
 		499B0FBE388EA68C287508E3 /* Pods_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF331DFEB7151D9D9BA7EC9 /* Pods_Connect.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,7 @@
 		31F72B9926ADBE690094892E /* HomeTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		31F72B9D26AEC5F40094892E /* ProjectEditorViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEditorViewControllerDelegate.swift; sourceTree = "<group>"; };
 		31F72BA126AEC9080094892E /* TagConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagConverter.swift; sourceTree = "<group>"; };
+		31F72BA526AED9630094892E /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 		35EB784B9E5DC9635B0E0F43 /* Pods-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.release.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 				31E7B62326AC52910062CFEC /* BadWords.swift */,
 				315A055826ACBC3700853C6B /* DatabaseDocument.swift */,
 				315A055C26ACC35500853C6B /* Project.swift */,
+				31F72BA526AED9630094892E /* UserDetails.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				31E86DFA26AACE6B00A96947 /* LoginNavigationViewController.swift in Sources */,
 				31E86E2026AAD52D00A96947 /* Alerter.swift in Sources */,
 				317D82C126AB4CC500EB62EC /* CurrentUser.swift in Sources */,
+				31F72BA626AED9630094892E /* UserDetails.swift in Sources */,
 				31F72B9E26AEC5F50094892E /* ProjectEditorViewControllerDelegate.swift in Sources */,
 				31F72B9626ADB82A0094892E /* ProjectDetailsViewController.swift in Sources */,
 				31F72BA226AEC9080094892E /* TagConverter.swift in Sources */,

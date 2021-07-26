@@ -43,7 +43,7 @@ class HomeTableViewCell: UITableViewCell {
         background.layer.cornerRadius = 20
         
         titleLabel.text = project.title
-        //ownerUsernameLabel.text = project.ownerNickname
+        ownerUsernameLabel.text = project.ownerName ?? "user"
         if project.ownerImage != nil { ownerImage.sd_setImage(with: URL(string: project.ownerImage!), completed: nil) }
         guard let tags = project.needTags else {
             tagsLabel.isHidden = true

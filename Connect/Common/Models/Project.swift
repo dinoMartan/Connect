@@ -15,6 +15,7 @@ struct Project: Codable {
     let needTags: [String]?
     let ownerId: String
     let ownerImage: String?
+    let ownerName: String?
     let creationDate: Date
     
 }

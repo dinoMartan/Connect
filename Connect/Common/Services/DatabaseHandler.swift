@@ -11,6 +11,7 @@ import Firebase
 enum CollectionsConstants: String {
     
     case projects = "projects"
+    case userDetails = "userDetails"
     
 }
 
@@ -82,8 +83,12 @@ final class DatabaseHandler {
         }
     }
     
-    func getObjectByDocumentId<T: Codable>(type: T.Type, collection: CollectionsConstants, documentId: String, success: @escaping ((T) -> Void), failure: @escaping ((Error?) -> Void)) {
+    func getObjectByDocumentId<T: Codable>(type: T.Type, collection: CollectionsConstants, documentId: String, success: @escaping ((T?) -> Void), failure: @escaping ((Error?) -> Void)) {
         db.collection(collection.rawValue).document(documentId).getDocument { (data, error) in
+            if data == nil || data?.data() == nil {
+                success(nil)
+                return
+            }
             if error == nil {
                 let data = data?.data()
                 guard let document = getObject(type: T.self, data: data) else {

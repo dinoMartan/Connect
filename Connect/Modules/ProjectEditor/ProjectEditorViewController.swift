@@ -164,31 +164,37 @@ extension ProjectEditorViewController {
             needTags.append(tag.text)
         }
         
-        let newProject = Project(title: title!, description: description!, haveTags: haveTags, needTags: needTags, ownerId: userId, ownerImage: nil, creationDate: Date())
-        
-        // if project wasn't set, add new project
-        if project == nil {
-            DatabaseHandler.shared.addDocument(object: newProject, collection: .projects, documentIdType: .random) {
-                self.delegate?.didMakeChanges()
-                self.dismiss(animated: true, completion: nil)
-            } failure: { error in
-                Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: { _ in
+        CurrentUser.shared.getCurrentUserDetails { userDetails in
+            let newProject = Project(title: title!, description: description!, haveTags: haveTags, needTags: needTags, ownerId: userId, ownerImage: userDetails?.profileImage, ownerName: userDetails?.name, creationDate: Date())
+            
+            // if project wasn't set, add new project
+            if self.project == nil {
+                DatabaseHandler.shared.addDocument(object: newProject, collection: .projects, documentIdType: .random) {
+                    self.delegate?.didMakeChanges()
                     self.dismiss(animated: true, completion: nil)
-                })
+                } failure: { error in
+                    Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: { _ in
+                        self.dismiss(animated: true, completion: nil)
+                    })
+                }
             }
-        }
-        
-        // if project was set, update project
-        else {
-            project!.object = newProject
-            DatabaseHandler.shared.updateDocument(type: Project.self, databaseDocument: project!, collection: .projects) {
-                self.delegate?.didMakeChanges()
-                self.dismiss(animated: true, completion: nil)
-            } failure: { error in
-                Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: { _ in
+            
+            // if project was set, update project
+            else {
+                self.project!.object = newProject
+                DatabaseHandler.shared.updateDocument(type: Project.self, databaseDocument: self.project!, collection: .projects) {
+                    self.delegate?.didMakeChanges()
                     self.dismiss(animated: true, completion: nil)
-                })
+                } failure: { error in
+                    Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: { _ in
+                        self.dismiss(animated: true, completion: nil)
+                    })
+                }
             }
+        } failure: { error in
+            Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: { _ in
+                self.dismiss(animated: true, completion: nil)
+            })
         }
     }
     

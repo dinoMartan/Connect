@@ -66,12 +66,13 @@ private extension ProjectDetailsViewController {
     
     private func loadDataToUI() {
         let project = self.project?.object as! Project
-        ownerNicknameLabel.text = project.ownerId
+        ownerNicknameLabel.text = project.ownerName ?? "user"
         projectTitleLabel.text = project.title
         projectDescriptionTextView.text = project.description
         haveTagsLabel.text = tagsToString(tags: project.haveTags)
         needTagsLabel.text = tagsToString(tags: project.needTags)
         guard let image = project.ownerImage else { return }
+        ownerImageView.layer.cornerRadius = ownerImageView.frame.height / 2
         ownerImageView.sd_setImage(with: URL(string: image), completed: nil)
     }
     
