@@ -17,6 +17,7 @@ enum CollectionsConstants: String {
 enum DatabaseFieldNameConstants: String {
     
     case needTags = "needTags"
+    case ownerId = "ownerId"
     
 }
 
@@ -49,17 +50,18 @@ final class DatabaseHandler {
     
     //MARK: - Public generic methods
     
-    func getDataWhere<T: Codable>(type: T.Type, collection: CollectionsConstants, whereField: DatabaseFieldNameConstants, isEqualTo: Any, success: @escaping (([T]) -> Void), failure: @escaping ((Error) -> Void)) {
+    func getDataWhere<T: Codable>(type: T.Type, collection: CollectionsConstants, whereField: DatabaseFieldNameConstants, isEqualTo: Any, success: @escaping (([DatabaseDocument]) -> Void), failure: @escaping ((Error) -> Void)) {
         
         db.collection(collection.rawValue).whereField(whereField.rawValue, isEqualTo: isEqualTo).getDocuments() { (querySnapshot, error) in
             if let error = error { failure(error) }
             else {
-                var results: [T] = []
+                var databaseResponses: [DatabaseDocument] = []
                 for document in querySnapshot!.documents {
-                    guard let data = document.getObject(type: T.self) else { continue }
-                    results.append(data)
+                    guard let object = document.getObject(type: T.self) else { continue }
+                    let databaseResponse = DatabaseDocument(id: document.documentID, object: object)
+                    databaseResponses.append(databaseResponse)
                 }
-                success(results)
+                success(databaseResponses)
             }
         }
     }
@@ -119,6 +121,17 @@ final class DatabaseHandler {
             documentId = String.randomString(length: 15)
         }
         db.collection(collection.rawValue).document(documentId).setData(object.toDictionnary!) { error in
+            if error == nil { success() }
+            else { failure(error) }
+        }
+    }
+    
+    func updateDocument<T: Codable>(type: T.Type, databaseDocument: DatabaseDocument, collection: CollectionsConstants, success: @escaping (() -> Void), failure: @escaping ((Error?) -> Void)) {
+        guard let object = databaseDocument.object as? T else {
+            failure(nil)
+            return
+        }
+        db.collection(collection.rawValue).document(databaseDocument.id).updateData(object.toDictionnary!) { error in
             if error == nil { success() }
             else { failure(error) }
         }

@@ -10,6 +10,6 @@ import Foundation
 struct DatabaseDocument {
     
     let id: String
-    let object: Any
+    var object: Any
     
 }

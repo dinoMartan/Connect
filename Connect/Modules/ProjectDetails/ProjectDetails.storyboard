@@ -180,7 +180,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JLJ-DJ-XFC"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.79690175513698636" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="systemRedColor"/>
                         <gestureRecognizers/>
                         <constraints>

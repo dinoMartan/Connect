@@ -46,6 +46,8 @@
 		31F72B9326ADB80F0094892E /* ProjectDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31F72B9226ADB80E0094892E /* ProjectDetails.storyboard */; };
 		31F72B9626ADB82A0094892E /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F72B9526ADB82A0094892E /* ProjectDetailsViewController.swift */; };
 		31F72B9A26ADBE690094892E /* HomeTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F72B9926ADBE690094892E /* HomeTableViewCellDelegate.swift */; };
+		31F72B9E26AEC5F50094892E /* ProjectEditorViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F72B9D26AEC5F40094892E /* ProjectEditorViewControllerDelegate.swift */; };
+		31F72BA226AEC9080094892E /* TagConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F72BA126AEC9080094892E /* TagConverter.swift */; };
 		499B0FBE388EA68C287508E3 /* Pods_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF331DFEB7151D9D9BA7EC9 /* Pods_Connect.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,8 @@
 		31F72B9226ADB80E0094892E /* ProjectDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProjectDetails.storyboard; sourceTree = "<group>"; };
 		31F72B9526ADB82A0094892E /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
 		31F72B9926ADBE690094892E /* HomeTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		31F72B9D26AEC5F40094892E /* ProjectEditorViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEditorViewControllerDelegate.swift; sourceTree = "<group>"; };
+		31F72BA126AEC9080094892E /* TagConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagConverter.swift; sourceTree = "<group>"; };
 		35EB784B9E5DC9635B0E0F43 /* Pods-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.release.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -264,6 +268,7 @@
 		31E86DCD26AAC0F800A96947 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				31F72BA026AEC8FC0094892E /* TagConverter */,
 				31F72B9826ADBE5C0094892E /* Protocols */,
 				31E7B5F126AC2A570062CFEC /* Animator */,
 				317D82BF26AB4CB100EB62EC /* CurrentUser */,
@@ -329,8 +334,17 @@
 			isa = PBXGroup;
 			children = (
 				31F72B9926ADBE690094892E /* HomeTableViewCellDelegate.swift */,
+				31F72B9D26AEC5F40094892E /* ProjectEditorViewControllerDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		31F72BA026AEC8FC0094892E /* TagConverter */ = {
+			isa = PBXGroup;
+			children = (
+				31F72BA126AEC9080094892E /* TagConverter.swift */,
+			);
+			path = TagConverter;
 			sourceTree = "<group>";
 		};
 		675E44562AEF1DC2B95F3D60 /* Pods */ = {
@@ -497,7 +511,9 @@
 				31E86DFA26AACE6B00A96947 /* LoginNavigationViewController.swift in Sources */,
 				31E86E2026AAD52D00A96947 /* Alerter.swift in Sources */,
 				317D82C126AB4CC500EB62EC /* CurrentUser.swift in Sources */,
+				31F72B9E26AEC5F50094892E /* ProjectEditorViewControllerDelegate.swift in Sources */,
 				31F72B9626ADB82A0094892E /* ProjectDetailsViewController.swift in Sources */,
+				31F72BA226AEC9080094892E /* TagConverter.swift in Sources */,
 				317D82AB26AB1C5F00EB62EC /* GithubAuthResponse.swift in Sources */,
 				315A055626ACA0B300853C6B /* DatabaseHandler.swift in Sources */,
 			);

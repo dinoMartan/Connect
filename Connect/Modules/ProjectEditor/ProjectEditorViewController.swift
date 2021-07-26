@@ -19,6 +19,11 @@ class ProjectEditorViewController: UIViewController {
     @IBOutlet private weak var haveTagsView: UIView!
     @IBOutlet private weak var needTagsView: UIView!
     
+    //MARK: - Public properties
+    
+    var project: DatabaseDocument?
+    weak var delegate: ProjectEditorViewControllerDelegate?
+    
     //MARK: - Private properties
     
     private let haveTagsField = WSTagsField()
@@ -41,6 +46,7 @@ private extension ProjectEditorViewController {
     //MARK: - View Setup
     
     private func setupView() {
+        if project != nil && project?.object is Project { loadDataToUI(project: project!.object as! Project) }
         backgroundView.layer.cornerRadius = 15
         backgroundView.backgroundColor = .connectBackground
         titleTextField.attributedPlaceholder = NSAttributedString(string: "Project title", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
@@ -48,6 +54,17 @@ private extension ProjectEditorViewController {
         configureTagViews()
         configureFirstTagField()
         configureSecondTagField()
+    }
+    
+    private func loadDataToUI(project: Project) {
+        titleTextField.text = project.title
+        descriptionTextField.text = project.description
+        if let haveTags = project.haveTags {
+            haveTagsField.addTags(haveTags)
+        }
+        if let needTags = project.needTags {
+            needTagsField.addTags(needTags)
+        }
     }
     
     //MARK: - Tag Views and Fields
@@ -144,14 +161,31 @@ extension ProjectEditorViewController {
         }
         
         let newProject = Project(title: title!, description: description!, haveTags: haveTags, needTags: needTags, ownerId: userId, ownerImage: nil, creationDate: Date())
-        DatabaseHandler.shared.addDocument(object: newProject, collection: .projects, documentIdType: .random) {
-            self.dismiss(animated: true, completion: nil)
-        } failure: { error in
-            Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: { _ in
+        
+        // if project wasn't set, add new project
+        if project == nil {
+            DatabaseHandler.shared.addDocument(object: newProject, collection: .projects, documentIdType: .random) {
+                self.delegate?.didMakeChanges()
                 self.dismiss(animated: true, completion: nil)
-            })
+            } failure: { error in
+                Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: { _ in
+                    self.dismiss(animated: true, completion: nil)
+                })
+            }
         }
-
+        
+        // if project was set, update project
+        else {
+            project!.object = newProject
+            DatabaseHandler.shared.updateDocument(type: Project.self, databaseDocument: project!, collection: .projects) {
+                self.delegate?.didMakeChanges()
+                self.dismiss(animated: true, completion: nil)
+            } failure: { error in
+                Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: { _ in
+                    self.dismiss(animated: true, completion: nil)
+                })
+            }
+        }
     }
     
 }
