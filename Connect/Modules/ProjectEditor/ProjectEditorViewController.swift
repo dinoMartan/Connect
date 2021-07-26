@@ -18,6 +18,7 @@ class ProjectEditorViewController: UIViewController {
     @IBOutlet private weak var backgroundView: UIView!
     @IBOutlet private weak var haveTagsView: UIView!
     @IBOutlet private weak var needTagsView: UIView!
+    @IBOutlet private weak var deleteButton: UIButton!
     
     //MARK: - Public properties
     
@@ -47,6 +48,9 @@ private extension ProjectEditorViewController {
     
     private func setupView() {
         if project != nil && project?.object is Project { loadDataToUI(project: project!.object as! Project) }
+        else {
+            deleteButton.isHidden = true
+        }
         backgroundView.layer.cornerRadius = 15
         backgroundView.backgroundColor = .connectBackground
         titleTextField.attributedPlaceholder = NSAttributedString(string: "Project title", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
@@ -184,6 +188,27 @@ extension ProjectEditorViewController {
                 Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: { _ in
                     self.dismiss(animated: true, completion: nil)
                 })
+            }
+        }
+    }
+    
+    @IBAction func didTapDeleteButton(_ sender: Any) {
+        guard let databaseDocument = project
+              else {
+            Alerter.showOneButtonAlert(on: self, title: .oops, message: .somethingWentWrong, actionTitle: .ok, handler: nil)
+            return
+        }
+        Alerter.showTwoButtonAlert(on: self, title: .areYouSure, message: .deleteProjectQuestion, buttonOneTitle: .yes, buttonOneStyle: .destructive, buttonTwoTitle: .cancel, buttonTwoStyle: .cancel) { action in
+            if action.style == .destructive {
+                DatabaseHandler.shared.deleteDocument(documentId: databaseDocument.id, collection: .projects) {
+                    self.delegate?.didMakeChanges()
+                    self.dismiss(animated: true, completion: nil)
+                } failure: { error in
+                    Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: { _ in
+                        self.dismiss(animated: true, completion: nil)
+                    })
+                }
+
             }
         }
     }

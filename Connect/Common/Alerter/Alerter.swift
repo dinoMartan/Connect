@@ -16,6 +16,7 @@ final class Alerter {
         case oops = "Oops"
         case success = "Success"
         case warning = "Warning"
+        case areYouSure = "Are you sure?"
         
     }
 
@@ -29,12 +30,16 @@ final class Alerter {
         case updateFailed = "Looks like update failed. Please try again."
         case dataFetchingFailed = "Looks like we couldn't fetch data. Please try again."
         case beRespectful = "Please don't be rude and be respectful."
+        case deleteProjectQuestion = "Deleting the project cannot be undone."
         
     }
 
     enum AlertButton: String {
         
         case ok = "OK"
+        case yes = "YES"
+        case delete = "DELETE"
+        case cancel = "CANCEL"
         
     }
     
@@ -55,6 +60,15 @@ final class Alerter {
         }
         let action = UIAlertAction(title: actionTitle.rawValue, style: .default, handler: handler)
         alert.addAction(action)
+        viewController.present(alert, animated: true, completion: nil)
+    }
+    
+    static func showTwoButtonAlert(on viewController: UIViewController, title: AlertTitle, message: AlertMessage, buttonOneTitle: AlertButton, buttonOneStyle: UIAlertAction.Style, buttonTwoTitle: AlertButton, buttonTwoStyle: UIAlertAction.Style, handler: ((UIAlertAction) -> Void)?) {
+        let alert = UIAlertController(title: title.rawValue, message: message.rawValue, preferredStyle: .alert)
+        let actionOne = UIAlertAction(title: buttonOneTitle.rawValue, style: buttonOneStyle, handler: handler)
+        let actionTwo = UIAlertAction(title: buttonTwoTitle.rawValue, style: buttonTwoStyle, handler: handler)
+        alert.addAction(actionOne)
+        alert.addAction(actionTwo)
         viewController.present(alert, animated: true, completion: nil)
     }
     

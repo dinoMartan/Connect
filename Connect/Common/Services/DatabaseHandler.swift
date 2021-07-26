@@ -137,6 +137,13 @@ final class DatabaseHandler {
         }
     }
     
+    func deleteDocument(documentId: String, collection: CollectionsConstants, success: @escaping (() -> Void), failure: @escaping ((Error?) -> Void)) {
+        db.collection(collection.rawValue).document(documentId).delete() { error in
+            if error == nil { success() }
+            else { failure(error) }
+        }
+    }
+    
     func uploadImage(image: UIImage, path: DatabaseImagePathContants, success: @escaping ((String) -> Void), failure: @escaping ((Error?) -> Void)) {
         guard let file = image.pngData() else {
             failure(nil)
