@@ -18,6 +18,7 @@ extension UIStoryboard {
         case MyProjects
         case ProjectEditor
         case ProjectDetails
+        case Profile
         
     }
     

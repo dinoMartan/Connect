@@ -179,8 +179,9 @@ extension HomeViewController {
         searchBar.resignFirstResponder()
     }
     
-    @IBAction func didTapLogoutButton(_ sender: Any) {
-        CurrentUser.shared.signOut(viewController: self)
+    @IBAction func didTapProfileButton(_ sender: Any) {
+        guard let profileViewController = UIStoryboard.getViewController(viewControllerType: ProfileViewController.self, from: .Profile) else { return }
+        navigationController?.pushViewController(profileViewController, animated: true)
     }
     
 }

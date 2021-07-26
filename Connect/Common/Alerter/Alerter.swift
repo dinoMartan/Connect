@@ -17,6 +17,7 @@ final class Alerter {
         case success = "Success"
         case warning = "Warning"
         case areYouSure = "Are you sure?"
+        case signOut = "Sign out"
         
     }
 
@@ -31,6 +32,7 @@ final class Alerter {
         case dataFetchingFailed = "Looks like we couldn't fetch data. Please try again."
         case beRespectful = "Please don't be rude and be respectful."
         case deleteProjectQuestion = "Deleting the project cannot be undone."
+        case areYouSure = "Are you sure?"
         
     }
 

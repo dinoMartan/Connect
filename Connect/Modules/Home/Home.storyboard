@@ -45,10 +45,10 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="wWg-US-I8w">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="08X-wL-ihU">
+                        <barButtonItem key="rightBarButtonItem" image="person.fill" catalog="system" id="08X-wL-ihU">
                             <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
-                                <action selector="didTapLogoutButton:" destination="VhY-vb-2Qe" id="XJP-7N-Yv0"/>
+                                <action selector="didTapProfileButton:" destination="VhY-vb-2Qe" id="XJP-7N-Yv0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -96,6 +96,7 @@
     </scenes>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

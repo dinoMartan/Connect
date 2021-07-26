@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3141E44826AF44A5007B2C4C /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3141E44726AF44A5007B2C4C /* Profile.storyboard */; };
+		3141E44B26AF44C2007B2C4C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3141E44A26AF44C2007B2C4C /* ProfileViewController.swift */; };
+		3141E44F26AF5AC6007B2C4C /* ChangesSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3141E44E26AF5AC6007B2C4C /* ChangesSettingTableViewCell.swift */; };
+		3141E45326AF62E4007B2C4C /* ActionsSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3141E45226AF62E4007B2C4C /* ActionsSettingTableViewCell.swift */; };
+		3141E45B26AF6B40007B2C4C /* ProfileSettingsSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3141E45A26AF6B40007B2C4C /* ProfileSettingsSectionView.xib */; };
+		3141E45E26AF6B7A007B2C4C /* ProfileSettingsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3141E45D26AF6B7A007B2C4C /* ProfileSettingsSectionView.swift */; };
+		3141E46126AF784D007B2C4C /* ProfileSettingsTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3141E46026AF784D007B2C4C /* ProfileSettingsTableViewCellDelegate.swift */; };
+		3141E46926AF80B8007B2C4C /* ProfileSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3141E46826AF80B8007B2C4C /* ProfileSettings.swift */; };
 		315A055626ACA0B300853C6B /* DatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A055526ACA0B300853C6B /* DatabaseHandler.swift */; };
 		315A055926ACBC3700853C6B /* DatabaseDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A055826ACBC3700853C6B /* DatabaseDocument.swift */; };
 		315A055D26ACC35500853C6B /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315A055C26ACC35500853C6B /* Project.swift */; };
@@ -55,6 +63,14 @@
 /* Begin PBXFileReference section */
 		0F9ABDA4BCE5C2E9C40660B4 /* Pods-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.debug.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.debug.xcconfig"; sourceTree = "<group>"; };
 		2FF331DFEB7151D9D9BA7EC9 /* Pods_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3141E44726AF44A5007B2C4C /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		3141E44A26AF44C2007B2C4C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3141E44E26AF5AC6007B2C4C /* ChangesSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesSettingTableViewCell.swift; sourceTree = "<group>"; };
+		3141E45226AF62E4007B2C4C /* ActionsSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsSettingTableViewCell.swift; sourceTree = "<group>"; };
+		3141E45A26AF6B40007B2C4C /* ProfileSettingsSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileSettingsSectionView.xib; sourceTree = "<group>"; };
+		3141E45D26AF6B7A007B2C4C /* ProfileSettingsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsSectionView.swift; sourceTree = "<group>"; };
+		3141E46026AF784D007B2C4C /* ProfileSettingsTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		3141E46826AF80B8007B2C4C /* ProfileSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettings.swift; sourceTree = "<group>"; };
 		315A055526ACA0B300853C6B /* DatabaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHandler.swift; sourceTree = "<group>"; };
 		315A055826ACBC3700853C6B /* DatabaseDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseDocument.swift; sourceTree = "<group>"; };
 		315A055C26ACC35500853C6B /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -114,6 +130,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3141E44626AF4490007B2C4C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3141E45526AF69C5007B2C4C /* Section */,
+				3141E44D26AF5AA7007B2C4C /* Cells */,
+				3141E44726AF44A5007B2C4C /* Profile.storyboard */,
+				3141E44A26AF44C2007B2C4C /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		3141E44D26AF5AA7007B2C4C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3141E44E26AF5AC6007B2C4C /* ChangesSettingTableViewCell.swift */,
+				3141E45226AF62E4007B2C4C /* ActionsSettingTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3141E45526AF69C5007B2C4C /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				3141E45A26AF6B40007B2C4C /* ProfileSettingsSectionView.xib */,
+				3141E45D26AF6B7A007B2C4C /* ProfileSettingsSectionView.swift */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
 		317D827E26AB0B2700EB62EC /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +184,7 @@
 				315A055826ACBC3700853C6B /* DatabaseDocument.swift */,
 				315A055C26ACC35500853C6B /* Project.swift */,
 				31F72BA526AED9630094892E /* UserDetails.swift */,
+				3141E46826AF80B8007B2C4C /* ProfileSettings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -257,6 +303,7 @@
 		31E86DCB26AAC0F200A96947 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3141E44626AF4490007B2C4C /* Profile */,
 				31F72B9126ADB7FF0094892E /* ProjectDetails */,
 				31E7B5F626AC33FA0062CFEC /* ProjectEditor */,
 				31E7B5BA26AC1DA60062CFEC /* MyProjects */,
@@ -338,6 +385,7 @@
 			children = (
 				31F72B9926ADBE690094892E /* HomeTableViewCellDelegate.swift */,
 				31F72B9D26AEC5F40094892E /* ProjectEditorViewControllerDelegate.swift */,
+				3141E46026AF784D007B2C4C /* ProfileSettingsTableViewCellDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -432,10 +480,12 @@
 				317D82B226AB45E300EB62EC /* Navigation.storyboard in Resources */,
 				31E7B5F826AC340A0062CFEC /* ProjectEditor.storyboard in Resources */,
 				31F72B9326ADB80F0094892E /* ProjectDetails.storyboard in Resources */,
+				3141E44826AF44A5007B2C4C /* Profile.storyboard in Resources */,
 				31E7B5BF26AC1DE50062CFEC /* MyProjects.storyboard in Resources */,
 				317D82B726AB463E00EB62EC /* Home.storyboard in Resources */,
 				31E86DA826AABF0200A96947 /* LaunchScreen.storyboard in Resources */,
 				31F72B8E26AD6C7F0094892E /* HomeTableViewCell.xib in Resources */,
+				3141E45B26AF6B40007B2C4C /* ProfileSettingsSectionView.xib in Resources */,
 				31E86DA526AABF0200A96947 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,16 +539,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3141E44F26AF5AC6007B2C4C /* ChangesSettingTableViewCell.swift in Sources */,
 				31E86DF326AAC99A00A96947 /* LoginViewController.swift in Sources */,
 				317D828026AB0B3500EB62EC /* AuthConstants.swift in Sources */,
 				31F72B8D26AD6C7F0094892E /* HomeTableViewCell.swift in Sources */,
 				31E86D9C26AABF0000A96947 /* AppDelegate.swift in Sources */,
 				315A055D26ACC35500853C6B /* Project.swift in Sources */,
 				31E7B5F326AC2A640062CFEC /* Animator.swift in Sources */,
+				3141E44B26AF44C2007B2C4C /* ProfileViewController.swift in Sources */,
 				31E86E5C26AAE48C00A96947 /* UIViewControllerExtension.swift in Sources */,
 				31E7B62426AC52910062CFEC /* BadWords.swift in Sources */,
+				3141E46926AF80B8007B2C4C /* ProfileSettings.swift in Sources */,
 				31E86E0026AAD1D900A96947 /* UITextFieldExtension.swift in Sources */,
 				31E7B5C226AC1E0D0062CFEC /* ConversationsViewController.swift in Sources */,
+				3141E45326AF62E4007B2C4C /* ActionsSettingTableViewCell.swift in Sources */,
+				3141E46126AF784D007B2C4C /* ProfileSettingsTableViewCellDelegate.swift in Sources */,
 				31E7B5FB26AC34260062CFEC /* ProjectEditorViewController.swift in Sources */,
 				317D82BA26AB465C00EB62EC /* HomeViewController.swift in Sources */,
 				31E86DF726AAC9D500A96947 /* StoryboardExtension.swift in Sources */,
@@ -517,6 +572,7 @@
 				31F72BA626AED9630094892E /* UserDetails.swift in Sources */,
 				31F72B9E26AEC5F50094892E /* ProjectEditorViewControllerDelegate.swift in Sources */,
 				31F72B9626ADB82A0094892E /* ProjectDetailsViewController.swift in Sources */,
+				3141E45E26AF6B7A007B2C4C /* ProfileSettingsSectionView.swift in Sources */,
 				31F72BA226AEC9080094892E /* TagConverter.swift in Sources */,
 				317D82AB26AB1C5F00EB62EC /* GithubAuthResponse.swift in Sources */,
 				315A055626ACA0B300853C6B /* DatabaseHandler.swift in Sources */,
