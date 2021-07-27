@@ -27,10 +27,6 @@ target 'Connect' do
 
   pod 'SDWebImage'
 
-  # Alamofire
-
-  pod 'Alamofire'
-
   # Animations
 
   pod 'ViewAnimator'

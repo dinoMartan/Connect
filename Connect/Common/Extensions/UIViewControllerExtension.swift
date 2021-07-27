@@ -10,6 +10,7 @@ import UIKit
 // Source: https://github.com/firebase/quickstart-ios/blob/master/authentication/LegacyAuthQuickstart/AuthenticationExampleSwift/UIViewController.swift
 
 private class SaveAlertHandle {
+    
     static var alertHandle: UIAlertController?
 
     class func set(_ handle: UIAlertController) {
@@ -23,7 +24,8 @@ private class SaveAlertHandle {
     class func get() -> UIAlertController? {
       return alertHandle
     }
-  }
+    
+}
 
 extension UIViewController {
     

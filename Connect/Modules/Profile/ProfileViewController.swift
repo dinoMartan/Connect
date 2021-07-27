@@ -50,7 +50,12 @@ private extension ProfileViewController {
         self.navigationController?.navigationBar.tintColor = .systemRed
         configureTableView()
         createSettings()
-        fetchUserDetails()
+        fetchUserDetails {
+            self.animateImage()
+            self.animateNickname()
+            self.loadDataToUI()
+            self.tableView.reloadData()
+        }
     }
     
     private func loadDataToUI() {
@@ -69,8 +74,11 @@ private extension ProfileViewController {
     
     //MARK: - Animations
     
-    private func animateScreen() {
+    private func animateImage() {
         UIView.animate(views: [profileImageView], animations: [zoomAnimation])
+    }
+    
+    private func animateNickname() {
         UIView.animate(views: [nicknameLabel], animations: [fadeAnimation])
     }
     
@@ -88,7 +96,7 @@ private extension ProfileViewController {
         settingsSections.append(secondSettingsSection)
     }
     
-    private func fetchUserDetails() {
+    private func fetchUserDetails(completion: @escaping (() -> Void)) {
         CurrentUser.shared.getCurrentUserDetails { [unowned self] userDetails in
             guard let details = userDetails else {
                 Alerter.showOneButtonAlert(on: self, title: .oops, message: .somethingWentWrong, actionTitle: .ok) { _ in
@@ -98,9 +106,7 @@ private extension ProfileViewController {
                 return
             }
             self.userDetails = details
-            animateScreen()
-            loadDataToUI()
-            tableView.reloadData()
+            completion()
         } failure: { error in
             Alerter.showOneButtonAlert(on: self, title: .oops, error: error, actionTitle: .ok) { _ in
                 self.dismiss(animated: true, completion: nil)
@@ -205,11 +211,58 @@ extension ProfileViewController: ProfileSettingsTableViewCellDelegate {
     }
     
     private func changeNickname() {
-        print("new nickname")
+        guard let currentUserDetails = userDetails,
+              let userId = CurrentUser.shared.getCurrentUserId() else { return }
+        showTextInputPrompt(withMessage: "New nickname") { didChange, nickname in
+            if didChange, let newNickname = nickname {
+                let userDetails = UserDetails(name: newNickname, profileImage: currentUserDetails.profileImage)
+                let databaseDocument = DatabaseDocument(id: userId, object: userDetails)
+                self.updateUserDetails(updateImage: false, databaseDocument: databaseDocument)
+            }
+        }
     }
     
     private func changeProfilePicture() {
-        print("new profile picture")
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    private func updateUserDetails(updateImage: Bool, databaseDocument: DatabaseDocument) {
+        DatabaseHandler.shared.updateUserDetails(databaseDocument: databaseDocument) {
+            self.fetchUserDetails {
+                if updateImage { self.animateNickname() }
+                else { self.animateNickname() }
+                self.loadDataToUI()
+            }
+        } failure: { error in
+            Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: nil)
+        }
+
+    }
+    
+}
+
+//MARK: - ImagePicker Delegate -
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            picker.dismiss(animated: true, completion: nil)
+            guard let currentUserDetails = userDetails,
+                  let userId = CurrentUser.shared.getCurrentUserId() else { return }
+            DatabaseHandler.shared.uploadImage(image: pickedImage, path: .profileImages, imageQuality: .lowest) { url in
+                let userDetails = UserDetails(name: currentUserDetails.name, profileImage: url)
+                let databaseDocument = DatabaseDocument(id: userId, object: userDetails)
+                self.updateUserDetails(updateImage: true, databaseDocument: databaseDocument)
+            } failure: { error in
+                Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: nil)
+            }
+
+        }
     }
     
 }

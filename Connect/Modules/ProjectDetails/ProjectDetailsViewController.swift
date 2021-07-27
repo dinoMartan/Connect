@@ -50,6 +50,8 @@ private extension ProjectDetailsViewController {
         checkDatabaseDocumentType()
         animateAppearing()
         loadDataToUI()
+        backgroundView.backgroundColor = .connectBackground
+        projectDescriptionTextView.backgroundColor = .connectSecondBackground
         backgroundView.layer.cornerRadius = 20
     }
     

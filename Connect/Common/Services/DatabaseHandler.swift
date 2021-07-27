@@ -19,12 +19,14 @@ enum DatabaseFieldNameConstants: String {
     
     case needTags = "needTags"
     case ownerId = "ownerId"
+    case ownerImage = "ownerImage"
+    case ownerName = "ownerName"
     
 }
 
 enum DatabaseImagePathContants: String {
     
-    case images = "images/"
+    case profileImages = "images/profile"
     
 }
 
@@ -142,6 +144,53 @@ final class DatabaseHandler {
         }
     }
     
+    func updateDocument(documentId: String, dictionary: [String: Any], collection: CollectionsConstants, success: @escaping (() -> Void), failure: @escaping ((Error?) -> Void)) {
+        db.collection(collection.rawValue).document(documentId).updateData(dictionary) { error in
+            if error == nil { success() }
+            else { failure(error) }
+        }
+    }
+    
+    /// In databaseDocument, UserDetails object is expected
+    func updateUserDetails(databaseDocument: DatabaseDocument, success: @escaping (() -> Void), failure: @escaping ((Error?) -> Void)) {
+        guard let document = databaseDocument.object as? UserDetails else {
+            failure(nil)
+            return
+        }
+        // update user details in collection userDetails
+        updateDocument(type: UserDetails.self, databaseDocument: databaseDocument, collection: .userDetails) {
+            // get all projects where updating user is the owner
+            self.getDataWhere(type: Project.self, collection: .projects, whereField: .ownerId, isEqualTo: databaseDocument.id) { databaseDocuments in
+                let dictionary = [
+                    "ownerImage": document.profileImage,
+                    "ownerName": document.name
+                ]
+                let group = DispatchGroup()
+                // update every project with owner details
+                for databaseDocument in databaseDocuments {
+                    group.enter()
+                    guard databaseDocument.object is Project else {
+                        group.leave()
+                        continue
+                    }
+                    self.updateDocument(documentId: databaseDocument.id, dictionary: dictionary as [String : Any], collection: .projects) {
+                        group.leave()
+                    } failure: { _ in
+                        group.leave()
+                    }
+                }
+                group.notify(queue: .main) {
+                    success()
+                }
+                
+            } failure: { error in
+                failure(error)
+            }
+        } failure: { error in
+            failure(error)
+        }
+    }
+    
     func deleteDocument(documentId: String, collection: CollectionsConstants, success: @escaping (() -> Void), failure: @escaping ((Error?) -> Void)) {
         db.collection(collection.rawValue).document(documentId).delete() { error in
             if error == nil { success() }
@@ -149,8 +198,8 @@ final class DatabaseHandler {
         }
     }
     
-    func uploadImage(image: UIImage, path: DatabaseImagePathContants, success: @escaping ((String) -> Void), failure: @escaping ((Error?) -> Void)) {
-        guard let file = image.pngData() else {
+    func uploadImage(image: UIImage, path: DatabaseImagePathContants, imageQuality: UIImage.ImageQuality, success: @escaping ((String) -> Void), failure: @escaping ((Error?) -> Void)) {
+        guard let file = image.compress(to: imageQuality).pngData() else {
             failure(nil)
             return
         }

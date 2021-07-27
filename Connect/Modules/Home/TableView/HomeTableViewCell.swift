@@ -12,6 +12,7 @@ class HomeTableViewCell: UITableViewCell {
     
     //MARK: - IBOutlets
     
+    @IBOutlet private weak var imageBackgroundView: UIView!
     @IBOutlet private weak var cellBackgroundView: UIView!
     @IBOutlet private weak var background: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
@@ -37,6 +38,7 @@ class HomeTableViewCell: UITableViewCell {
         let tapGuesture = UITapGestureRecognizer(target: self, action: #selector(didTapCell))
         self.addGestureRecognizer(tapGuesture)
         
+        imageBackgroundView.layer.cornerRadius = imageBackgroundView.frame.height / 2
         ownerImage.layer.cornerRadius = ownerImage.frame.height / 2
         cellBackgroundView.backgroundColor = .connectBackground
         background.backgroundColor = .connectSecondBackground
