@@ -12,6 +12,7 @@ enum CollectionsConstants: String {
     
     case projects = "projects"
     case userDetails = "userDetails"
+    case conversations = "conversations"
     
 }
 
@@ -21,6 +22,7 @@ enum DatabaseFieldNameConstants: String {
     case ownerId = "ownerId"
     case ownerImage = "ownerImage"
     case ownerName = "ownerName"
+    case messageUsersIds = "messageUsersIds"
     
 }
 
@@ -52,6 +54,25 @@ final class DatabaseHandler {
     
     
     //MARK: - Public generic methods
+    
+    func listenForDocumentRealTimeUpdates<T: Codable>(type: T.Type, collection: CollectionsConstants, documentId: String, success: @escaping ((T) -> Void), failure: @escaping ((Error?) -> Void)) {
+        db.collection(collection.rawValue).document(documentId).addSnapshotListener { (documentSnapshot, error) in
+            if let error = error {
+                failure(error)
+                return
+            }
+            else {
+                guard let document = documentSnapshot,
+                      let data = document.data(),
+                      let object = getObject(type: T.self, data: data)
+                else {
+                    failure(nil)
+                    return
+                }
+                success(object)
+            }
+        }
+    }
     
     func getDataWhere<T: Codable>(type: T.Type, collection: CollectionsConstants, whereField: DatabaseFieldNameConstants, isEqualTo: Any, success: @escaping (([DatabaseDocument]) -> Void), failure: @escaping ((Error) -> Void)) {
         

@@ -10,7 +10,6 @@ import FirebaseAuth
 import GoogleSignIn
 import Firebase
 import FBSDKLoginKit
-import Alamofire
 
 class LoginViewController: UIViewController {
     

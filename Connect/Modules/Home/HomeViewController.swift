@@ -24,6 +24,46 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // get users conversations
+        /*
+        guard let userId = CurrentUser.shared.getCurrentUserId() else { return }
+        DatabaseHandler.shared.getDataWhereArrayContains(type: Conversation.self, collection: .conversations, whereField: .messageUsersIds, contains: userId) { databaseDocuments in
+            for document in databaseDocuments {
+                guard let conversation = document.object as? Conversation else { continue }
+                print(conversation.messageUsersIds)
+            }
+        } failure: { _ in
+            //
+        }
+        */
+        
+        
+        // new conversation
+        
+        /*
+        guard let userId = CurrentUser.shared.getCurrentUserId() else { return }
+        CurrentUser.shared.getCurrentUserDetails { userDetails in
+            guard userDetails != nil else { return }
+            let meMessageUser = ConversationUser(id: userId, userDetails: userDetails!)
+            let gitMessageUser = ConversationUser(id: "lrzewExkjuS19OnbBeQztRtbiYH3", userDetails: UserDetails(name: "git user", profileImage: "https://avatars.githubusercontent.com/u/45883808?v=4"))
+            let myMessage = Message(text: "This is message", creationDate: Date(), sender: userId)
+            let gitUsersMessage = Message(text: "This is git users message", creationDate: Date(), sender: "lrzewExkjuS19OnbBeQztRtbiYH3")
+            let conversation = Conversation(conversationUsers: [meMessageUser, gitMessageUser], messageUsersIds: [userId, "lrzewExkjuS19OnbBeQztRtbiYH3"], dateStarted: Date(), messages: [myMessage, gitUsersMessage])
+            DatabaseHandler.shared.addDocument(object: conversation, collection: .conversations, documentIdType: .random) {
+                //
+            } failure: { _ in
+                //
+            }
+
+        } failure: { _ in
+            //
+        }
+        */
+        
+        
+        
+        
         setupView()
     }
     

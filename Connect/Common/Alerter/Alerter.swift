@@ -18,6 +18,7 @@ final class Alerter {
         case warning = "Warning"
         case areYouSure = "Are you sure?"
         case signOut = "Sign out"
+        case messageSent = "Message sent!"
         
     }
 
@@ -33,6 +34,7 @@ final class Alerter {
         case beRespectful = "Please don't be rude and be respectful."
         case deleteProjectQuestion = "Deleting the project cannot be undone."
         case areYouSure = "Are you sure?"
+        case messageIsInConversations = "Now you can chat with the user in Conversations tab!"
         
     }
 

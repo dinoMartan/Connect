@@ -111,7 +111,29 @@ extension ProjectDetailsViewController {
     }
     
     @IBAction func didTapMessageButton(_ sender: Any) {
-        // to do - message owner
+        guard let userId = CurrentUser.shared.getCurrentUserId(),
+              let project = project?.object as? Project else { return }
+        
+        showTextInputPrompt(withMessage: "Message") { (didTypeText, text) in
+            if didTypeText {
+                guard let messageText = text else { return }
+                CurrentUser.shared.getCurrentUserDetails { userDetails in
+                    guard userDetails != nil else { return }
+                    let meMessageUser = ConversationUser(id: userId, userDetails: userDetails!)
+                    let projectMessageUser = ConversationUser(id: project.ownerId, userDetails: UserDetails(name: project.ownerName, profileImage: project.ownerImage))
+                    let myMessage = Message(text: messageText, creationDate: Date(), sender: userId)
+                    let conversation = Conversation(conversationUsers: [meMessageUser, projectMessageUser], messageUsersIds: [userId, project.ownerId], dateStarted: Date(), messages: [myMessage])
+                    DatabaseHandler.shared.addDocument(object: conversation, collection: .conversations, documentIdType: .random) {
+                        Alerter.showOneButtonAlert(on: self, title: .messageSent, message: .messageIsInConversations, actionTitle: .ok, handler: nil)
+                    } failure: { error in
+                        Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: nil)
+                    }
+
+                } failure: { error in
+                    Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: nil)
+                }
+            }
+        }
     }
     
     @IBAction func didTapCloseButton(_ sender: Any) {
