@@ -50,7 +50,14 @@ private extension ChatViewController {
             newMessageBackgroundView.backgroundColor = .connectBackground
             attachConversationListener()
             configureTableView()
+            configureTextField()
         }
+    }
+    
+    //MARK: - TextField Configuration
+    
+    private func configureTextField() {
+        textField.delegate = self
     }
     
     //MARK: - TableView Configuration
@@ -60,13 +67,20 @@ private extension ChatViewController {
         tableView.delegate = self
     }
     
+    private func scrollToBottom() {
+        guard let conversation = conversation else { return }
+        let indexPath = NSIndexPath(row: conversation.messages.count-1, section: 0)
+        self.tableView.scrollToRow(at: indexPath as IndexPath, at: .bottom, animated: false)
+    }
+    
     //MARK: - Data
     
     private func attachConversationListener() {
         guard let conversationId = conversationId else { return }
-        DatabaseHandler.shared.listenForDocumentRealTimeUpdates(type: Conversation.self, collection: .conversations, documentId: conversationId) { conversation in
+        DatabaseHandler.shared.listenForDocumentRealTimeUpdates(type: Conversation.self, collection: .conversations, documentId: conversationId) { [unowned self] conversation in
             self.conversation = conversation
-            self.tableView.reloadData()
+            tableView.reloadData()
+            scrollToBottom()
         } failure: { error in
             Alerter.showOneButtonAlert(on: self, title: .error, error: error, actionTitle: .ok, handler: nil)
         }
@@ -115,6 +129,17 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
+//MARK: - TextField Delegate -
+
+extension ChatViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        didTapSendButton(self)
+        return true
+    }
+    
+}
+
 //MARK: - IBActions -
 
 extension ChatViewController {
@@ -124,7 +149,6 @@ extension ChatViewController {
     }
     
     @IBAction func didTapSendButton(_ sender: Any) {
-        textField.resignFirstResponder()
         guard let text = textField.text,
               text != "",
               text != " ",

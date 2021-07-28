@@ -25,6 +25,7 @@ class RightSideTableViewCell: UITableViewCell {
     func configureCell(message: Message, senderUserDetails: UserDetails?) {
         messageBackgroundView.layer.cornerRadius = 15
         messageTextLabel.text = message.text
+        
         personImageView.roundView()
         if let image = senderUserDetails?.profileImage { personImageView.sd_setImage(with: URL(string: image), completed: nil) }
     }
