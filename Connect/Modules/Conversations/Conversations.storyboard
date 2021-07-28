@@ -123,14 +123,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="j4V-qJ-8Gx">
-                                                    <rect key="frame" x="10" y="2" width="40" height="37"/>
+                                                    <rect key="frame" x="10" y="9.5" width="25" height="22"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="cuT-Ri-TgE"/>
-                                                        <constraint firstAttribute="height" constant="40" id="mRQ-gA-O0O"/>
+                                                        <constraint firstAttribute="width" constant="25" id="cuT-Ri-TgE"/>
+                                                        <constraint firstAttribute="height" constant="25" id="mRQ-gA-O0O"/>
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Mq-cn-hDT">
-                                                    <rect key="frame" x="60" y="5" width="49" height="31"/>
+                                                    <rect key="frame" x="45" y="5" width="49" height="31"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLw-ni-pBH">
                                                             <rect key="frame" x="10" y="5" width="29" height="21"/>
@@ -172,14 +172,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="g91-SR-46h">
-                                                    <rect key="frame" x="354" y="2" width="40" height="37"/>
+                                                    <rect key="frame" x="369" y="9.5" width="25" height="22"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="Ght-ep-0uc"/>
-                                                        <constraint firstAttribute="height" constant="40" id="cFm-C5-5ej"/>
+                                                        <constraint firstAttribute="width" constant="25" id="Ght-ep-0uc"/>
+                                                        <constraint firstAttribute="height" constant="25" id="cFm-C5-5ej"/>
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Usr-e6-cfP">
-                                                    <rect key="frame" x="198.5" y="5" width="135.5" height="31"/>
+                                                    <rect key="frame" x="223.5" y="5" width="135.5" height="31"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="texttexttexttext" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="an3-fI-Ar0">
                                                             <rect key="frame" x="10" y="5" width="115.5" height="21"/>
@@ -200,7 +200,7 @@
                                             <constraints>
                                                 <constraint firstItem="Usr-e6-cfP" firstAttribute="top" secondItem="Pm7-da-i57" secondAttribute="top" constant="5" id="5EE-cR-uE7"/>
                                                 <constraint firstAttribute="trailing" secondItem="g91-SR-46h" secondAttribute="trailing" constant="20" id="QBb-KH-tVo"/>
-                                                <constraint firstItem="g91-SR-46h" firstAttribute="leading" secondItem="Usr-e6-cfP" secondAttribute="trailing" constant="20" id="W6I-UQ-H3G"/>
+                                                <constraint firstItem="g91-SR-46h" firstAttribute="leading" secondItem="Usr-e6-cfP" secondAttribute="trailing" constant="10" id="W6I-UQ-H3G"/>
                                                 <constraint firstItem="Usr-e6-cfP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pm7-da-i57" secondAttribute="leading" constant="20" id="W9l-75-FEg"/>
                                                 <constraint firstAttribute="bottom" secondItem="Usr-e6-cfP" secondAttribute="bottom" constant="5" id="gc6-va-3Le"/>
                                                 <constraint firstItem="g91-SR-46h" firstAttribute="centerY" secondItem="Pm7-da-i57" secondAttribute="centerY" id="mqw-tN-Mxg"/>
