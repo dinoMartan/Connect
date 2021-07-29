@@ -12,11 +12,11 @@ extension UIImage {
     // in kb
     enum ImageQuality: Int {
         
-        case lowest = 200
-        case low = 400
-        case medium = 600
-        case high = 800
-        case highest = 1000
+        case lowest = 20
+        case low = 40
+        case medium = 60
+        case high = 80
+        case highest = 100
         
     }
     

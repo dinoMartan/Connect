@@ -47,7 +47,11 @@ private extension ChatViewController {
             }
         }
         else {
+            navigationItem.largeTitleDisplayMode = .never
             newMessageBackgroundView.backgroundColor = .connectBackground
+            view.backgroundColor = .connectBackground
+            tableView.backgroundColor = .connectBackground
+            navigationController?.navigationBar.backgroundColor = .connectBackground
             attachConversationListener()
             configureTableView()
             configureTextField()

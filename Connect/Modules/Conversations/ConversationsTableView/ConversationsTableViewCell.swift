@@ -12,6 +12,7 @@ class ConversationsTableViewCell: UITableViewCell {
 
     //MARK: - IBOutlets
     
+    @IBOutlet private weak var imageBackgroundView: UIView!
     @IBOutlet private weak var cellBackgroundView: UIView!
     @IBOutlet private weak var conversationImageView: UIImageView!
     @IBOutlet private weak var conversationNameLabel: UILabel!
@@ -28,6 +29,7 @@ class ConversationsTableViewCell: UITableViewCell {
         cellBackgroundView.layer.cornerRadius = 15
         cellBackgroundView.backgroundColor = .connectSecondBackground
         conversationImageView.roundView()
+        imageBackgroundView.roundView()
         selectedBackgroundView?.backgroundColor = .black
         if let userId = CurrentUser.shared.getCurrentUserId() {
             let firstUser = conversation.conversationUsers.first

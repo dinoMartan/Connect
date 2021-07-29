@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     
     //MARK: - IBOutlets
     
+    @IBOutlet private weak var githubButton: UIButton!
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var facebookLoginButton: UIButton!
@@ -41,7 +42,17 @@ private extension LoginViewController {
     
     private func setupView() {
         configureFacebookLoginButton()
+        configureGithubButton()
         view.backgroundColor = .connectBackground
+    }
+    
+    //MARK: - Github Button Configuration
+    
+    private func configureGithubButton() {
+        let image = githubButton.image(for: .normal)
+        let tintedImage = image?.withRenderingMode(.alwaysTemplate)
+        githubButton.setImage(tintedImage, for: .normal)
+        githubButton.tintColor = .darkGray
     }
     
     //MARK: - FacebookLoginButton configuraton
@@ -184,7 +195,7 @@ extension LoginViewController {
                     {
                     if newUser {
                         let name = user?.profile?.name
-                        let profileImage = user?.profile?.imageURL(withDimension: 200)?.absoluteString
+                        let profileImage = user?.profile?.imageURL(withDimension: 200)?.absoluteString ?? AuthConstants.defaultProfilePicture.rawValue
                         let userDetails = UserDetails(name: name, profileImage: profileImage)
                         addNewUserDetails(userDetails: userDetails, userId: userId)
                     }
@@ -221,7 +232,7 @@ extension LoginViewController {
                         if isNewUser {
                             guard let userId = authResult?.user.uid
                                   else { return }
-                            let userDetails = UserDetails(name: result.user.displayName, profileImage: result.user.photoURL?.absoluteString)
+                            let userDetails = UserDetails(name: result.user.displayName, profileImage: result.user.photoURL?.absoluteString ?? AuthConstants.defaultProfilePicture.rawValue)
                             self.addNewUserDetails(userDetails: userDetails, userId: userId)
                             self.sendToApp()
                         }
@@ -337,6 +348,7 @@ extension LoginViewController: LoginButtonDelegate {
                     if let profileImage = authResult?.user.photoURL?.absoluteString {
                         image = profileImage + "?access_token=\(token)"
                     }
+                    else { image = AuthConstants.defaultProfilePicture.rawValue }
                     let userDetails = UserDetails(name: name, profileImage: image)
                     self.addNewUserDetails(userDetails: userDetails, userId: userId)
                 }

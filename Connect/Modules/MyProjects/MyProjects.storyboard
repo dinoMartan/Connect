@@ -16,34 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZWN-np-hMv">
-                                <rect key="frame" x="0.0" y="140" width="414" height="32"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <segments>
-                                    <segment title="My Projects"/>
-                                    <segment title="Assigned Projects"/>
-                                </segments>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gtv-cP-7Fb">
-                                <rect key="frame" x="0.0" y="171" width="414" height="642"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8jc-Ch-3lL"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ZWN-np-hMv" firstAttribute="leading" secondItem="8jc-Ch-3lL" secondAttribute="leading" id="DBT-Oh-Lqm"/>
                             <constraint firstItem="8jc-Ch-3lL" firstAttribute="bottom" secondItem="Gtv-cP-7Fb" secondAttribute="bottom" id="NtD-pQ-dd2"/>
-                            <constraint firstItem="Gtv-cP-7Fb" firstAttribute="top" secondItem="ZWN-np-hMv" secondAttribute="bottom" id="ie0-mU-pVo"/>
+                            <constraint firstItem="Gtv-cP-7Fb" firstAttribute="top" secondItem="8jc-Ch-3lL" secondAttribute="top" id="eI3-ES-gtM"/>
                             <constraint firstItem="Gtv-cP-7Fb" firstAttribute="leading" secondItem="8jc-Ch-3lL" secondAttribute="leading" id="mwf-8R-8tV"/>
-                            <constraint firstItem="ZWN-np-hMv" firstAttribute="top" secondItem="8jc-Ch-3lL" secondAttribute="top" id="oWs-1J-wNS"/>
                             <constraint firstItem="8jc-Ch-3lL" firstAttribute="trailing" secondItem="Gtv-cP-7Fb" secondAttribute="trailing" id="vtL-Yt-5a2"/>
-                            <constraint firstItem="8jc-Ch-3lL" firstAttribute="trailing" secondItem="ZWN-np-hMv" secondAttribute="trailing" id="zFA-Pq-c1v"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Projects" id="JhN-3p-M9v">
+                    <navigationItem key="navigationItem" title="My Projects" id="JhN-3p-M9v">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="i3o-Z4-32N">
                             <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
@@ -52,7 +39,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="segmentedControl" destination="ZWN-np-hMv" id="cXs-gi-ewi"/>
                         <outlet property="tableView" destination="Gtv-cP-7Fb" id="nag-Os-vGG"/>
                     </connections>
                 </viewController>
@@ -64,7 +50,7 @@
         <scene sceneID="LbC-1L-TES">
             <objects>
                 <navigationController title="Projects" automaticallyAdjustsScrollViewInsets="NO" id="0Ch-GD-YxF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Projects" image="pencil" catalog="system" id="nxZ-oy-5lL"/>
+                    <tabBarItem key="tabBarItem" title="My Projects" image="pencil" catalog="system" id="nxZ-oy-5lL"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="zqe-50-ldi">

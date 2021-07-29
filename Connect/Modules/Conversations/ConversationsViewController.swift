@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ViewAnimator
 
 class ConversationsViewController: UIViewController {
     
@@ -28,6 +29,12 @@ class ConversationsViewController: UIViewController {
         super.viewWillAppear(animated)
         fetchConversations()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        usersConversations.removeAll()
+        tableView.reloadData()
+    }
 
 }
 
@@ -38,7 +45,10 @@ private extension ConversationsViewController {
     //MARK: - Setup View
     
     private func setupView() {
+        navigationItem.largeTitleDisplayMode = .always
         view.backgroundColor = .connectBackground
+        tableView.backgroundColor = .connectBackground
+        navigationController?.navigationBar.backgroundColor = .connectBackground
         configureTableView()
     }
     
@@ -87,6 +97,20 @@ extension ConversationsViewController: UITableViewDataSource, UITableViewDelegat
               else { return }
         chatViewController.conversationId = usersConversations[indexPath.row].id
         navigationController?.pushViewController(chatViewController, animated: true)
+    }
+    
+    // animate cells on appear - randomly select left2right or right2left animation
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let fadeAnimation = AnimationType.identity
+        let vectorAnimationLeftToRight = AnimationType.vector(CGVector(dx: -300, dy: 0))
+        let vectorAnimationRightToLeft = AnimationType.vector(CGVector(dx: 300, dy: 0))
+        let random = Int.random(in: 1...10)
+        if random % 2 == 0 {
+            UIView.animate(views: [cell], animations: [fadeAnimation, vectorAnimationLeftToRight])
+        }
+        else {
+            UIView.animate(views: [cell], animations: [fadeAnimation, vectorAnimationRightToLeft])
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

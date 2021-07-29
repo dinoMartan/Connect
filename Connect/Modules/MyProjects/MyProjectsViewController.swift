@@ -13,7 +13,6 @@ class MyProjectsViewController: UIViewController {
     //MARK: - IBOutlets
     
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var segmentedControl: UISegmentedControl!
     
     //MARK: - Private properties
     
@@ -48,26 +47,8 @@ private extension MyProjectsViewController {
     
     private func setupView() {
         view.backgroundColor = .connectBackground
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
         tableView.backgroundColor = .connectBackground
         configureTableView()
-    }
-    
-    //MARK: - SegmentedControl setup and configuration
-    
-    private func setListenerOnSegmentedControl() {
-        segmentedControl.addTarget(self, action: #selector(self.didChangeValue(_:)), for: .valueChanged)
-    }
-    
-    @objc func didChangeValue(_ sender: UISegmentedControl) {
-        let index = self.segmentedControl.selectedSegmentIndex
-        if index == 0 { // my projects
-            fetchMyProjects()
-        }
-        else if index == 1 { // assigned projects
-            // to do - assign user to project
-        }
     }
     
     //MARK: - TableView Configuration
