@@ -13,9 +13,30 @@ target 'Connect' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'FirebaseFirestoreSwift'
+  pod 'Firebase/Auth'
+
+  # Google
+
+  pod 'GoogleSignIn', '6.0.1'
+
+  # Facebook
+
+  pod 'FBSDKLoginKit'
 
   # WebImage
 
   pod 'SDWebImage'
+
+  # Animations
+
+  pod 'ViewAnimator'
+
+  # Tags
+
+  pod 'WSTagsField'
+
+  # Keyboard
+
+  pod 'IQKeyboardManagerSwift'
 
 end

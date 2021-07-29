@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BST-hC-5Wo">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Tab Bar View Controller-->
+        <scene sceneID="RqH-0U-1AV">
+            <objects>
+                <tabBarController storyboardIdentifier="NavigationTabBarViewController" id="BST-hC-5Wo" customClass="NavigationTabBarViewController" customModule="Connect" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="TiD-9u-ZV4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemRedColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="UVm-iy-mae" kind="relationship" relationship="viewControllers" id="qra-hr-mju"/>
+                        <segue destination="cUG-Pq-Xwk" kind="relationship" relationship="viewControllers" id="srJ-kK-YKk"/>
+                        <segue destination="Cry-Gb-IPe" kind="relationship" relationship="viewControllers" id="pSg-LB-wZl"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7mP-rn-JHc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="36" y="-78"/>
+        </scene>
+        <!--MyProjects-->
+        <scene sceneID="9Xl-0W-FD4">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MyProjects" storyboardName="MyProjects" id="UVm-iy-mae" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="7pf-54-WbG"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lrz-xg-4WH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-193" y="343"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="Yz0-xC-A2K">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Home" storyboardName="Home" id="cUG-Pq-Xwk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="39t-Vx-uGQ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9S6-eY-5uk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35" y="343"/>
+        </scene>
+        <!--Conversations-->
+        <scene sceneID="eMV-jw-D3m">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Conversations" storyboardName="Conversations" id="Cry-Gb-IPe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="RV6-E3-K6A"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BHh-g1-eFg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="273" y="343"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

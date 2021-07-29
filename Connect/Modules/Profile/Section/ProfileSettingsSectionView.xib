@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ZpS-6w-nlo" customClass="ProfileSettingsSectionView" customModule="Connect" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="omc-eY-w51">
+                    <rect key="frame" x="0.0" y="433" width="414" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRx-kx-geL">
+                            <rect key="frame" x="20" y="10" width="364" height="10"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.88848350253807107" green="0.88848350253807107" blue="0.88848350253807107" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="hRx-kx-geL" secondAttribute="bottom" constant="10" id="4fs-yp-2yH"/>
+                        <constraint firstAttribute="height" constant="30" id="NbS-7Z-O1E"/>
+                        <constraint firstItem="hRx-kx-geL" firstAttribute="leading" secondItem="omc-eY-w51" secondAttribute="leading" constant="20" id="iql-AQ-FmJ"/>
+                        <constraint firstItem="hRx-kx-geL" firstAttribute="top" secondItem="omc-eY-w51" secondAttribute="top" constant="10" id="kcC-bf-pq8"/>
+                        <constraint firstAttribute="trailing" secondItem="hRx-kx-geL" secondAttribute="trailing" constant="30" id="mHg-nm-GwM"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="zfe-Jr-Lhe"/>
+            <constraints>
+                <constraint firstItem="zfe-Jr-Lhe" firstAttribute="trailing" secondItem="omc-eY-w51" secondAttribute="trailing" id="6kO-VB-JGd"/>
+                <constraint firstItem="omc-eY-w51" firstAttribute="centerX" secondItem="ZpS-6w-nlo" secondAttribute="centerX" id="aIt-f4-plp"/>
+                <constraint firstItem="omc-eY-w51" firstAttribute="leading" secondItem="zfe-Jr-Lhe" secondAttribute="leading" id="b1S-NX-M3n"/>
+                <constraint firstItem="omc-eY-w51" firstAttribute="centerY" secondItem="ZpS-6w-nlo" secondAttribute="centerY" id="erS-YU-DY9"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="reuseIdentifier" value="ProfileSettingsSectionView"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="sectionLabel" destination="hRx-kx-geL" id="UAU-OV-cvA"/>
+            </connections>
+            <point key="canvasLocation" x="-83" y="-328"/>
+        </view>
+    </objects>
+</document>

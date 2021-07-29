@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6wV-HT-ehR">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="EXg-db-e7N">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" title="Home" id="VhY-vb-2Qe" customClass="HomeViewController" customModule="Connect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lIy-Db-wII">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="swift, js, php ..." translatesAutoresizingMaskIntoConstraints="NO" id="Nve-Wq-XvC">
+                                <rect key="frame" x="20" y="88" width="374" height="56"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2EM-g1-L8U">
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="F50-0R-Izy"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="1" green="0.13763228850000001" blue="0.14059450770000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Nve-Wq-XvC" firstAttribute="leading" secondItem="F50-0R-Izy" secondAttribute="leading" constant="20" id="1r8-h8-3Sr"/>
+                            <constraint firstItem="2EM-g1-L8U" firstAttribute="leading" secondItem="F50-0R-Izy" secondAttribute="leading" id="6Wo-OB-JZ4"/>
+                            <constraint firstItem="2EM-g1-L8U" firstAttribute="top" secondItem="Nve-Wq-XvC" secondAttribute="bottom" id="Y4m-Zc-q9P"/>
+                            <constraint firstAttribute="trailing" secondItem="Nve-Wq-XvC" secondAttribute="trailing" constant="20" id="eb2-gN-i9O"/>
+                            <constraint firstItem="Nve-Wq-XvC" firstAttribute="top" secondItem="F50-0R-Izy" secondAttribute="top" id="g9h-lW-Yr5"/>
+                            <constraint firstItem="F50-0R-Izy" firstAttribute="trailing" secondItem="2EM-g1-L8U" secondAttribute="trailing" id="tfw-ep-azq"/>
+                            <constraint firstItem="F50-0R-Izy" firstAttribute="bottom" secondItem="2EM-g1-L8U" secondAttribute="bottom" id="xgk-iy-RZu"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="4pS-mP-dzD" appends="YES" id="4Ls-D3-8sP"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Home" id="wWg-US-I8w">
+                        <barButtonItem key="rightBarButtonItem" image="person.fill" catalog="system" id="08X-wL-ihU">
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <action selector="didTapProfileButton:" destination="VhY-vb-2Qe" id="XJP-7N-Yv0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="Nve-Wq-XvC" id="ZBA-yj-hlx"/>
+                        <outlet property="tableView" destination="2EM-g1-L8U" id="JT7-VX-AVQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tmh-mt-PyI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4pS-mP-dzD">
+                    <connections>
+                        <action selector="didTapOutside:" destination="VhY-vb-2Qe" id="dp3-8G-Crq"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1179.7101449275362" y="84.375"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="9q7-42-FGm">
+            <objects>
+                <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="6wV-HT-ehR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="VEL-NI-zkk"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pdw-gk-SIC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VhY-vb-2Qe" kind="relationship" relationship="rootViewController" id="bxC-re-eQ5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bNu-7c-zY6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="269.56521739130437" y="84.375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

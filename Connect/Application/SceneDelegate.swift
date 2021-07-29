@@ -6,17 +6,31 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
+import FBSDKCoreKit
+import IQKeyboardManagerSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
+        FirebaseApp.configure()
+        IQKeyboardManager.shared.enable = true
         let window = UIWindow(windowScene: scene)
+        
+        if CurrentUser.shared.userSignedIn() {
+            guard let navigationTabBarViewController = UIStoryboard.getViewController(viewControllerType: NavigationTabBarViewController.self, from: .Navigation) else { return }
+            window.rootViewController = navigationTabBarViewController
+        }
+        else {
+            guard let loginNavigationViewController = UIStoryboard.getViewController(viewControllerType: LoginNavigationViewController.self, from: .Authentication) else { return }
+            window.rootViewController = loginNavigationViewController
+        }
+        
         window.makeKeyAndVisible()
-        //window.rootViewController = 
         self.window = window
     }
 
