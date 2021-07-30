@@ -28,7 +28,8 @@ enum DatabaseFieldNameConstants: String {
 
 enum DatabaseImagePathContants: String {
     
-    case profileImages = "images/profile"
+    case profileImages = "images/profile/"
+    case messageImages = "images/message/"
     
 }
 

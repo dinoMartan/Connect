@@ -1,5 +1,5 @@
 //
-//  LeftSideTableViewCell.swift
+//  RightSideTableViewCell.swift
 //  Connect
 //
 //  Created by Dino Martan on 28/07/2021.
@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class LeftSideTableViewCell: UITableViewCell {
+class RightSideTableViewCell: UITableViewCell {
 
     //MARK: - IBOutlets
     
@@ -18,7 +18,7 @@ class LeftSideTableViewCell: UITableViewCell {
     
     //MARK: - Public properties
     
-    static let identifier = "LeftSideTableViewCell"
+    static let identifier = "RightSideTableViewCell"
     
     //MARK: - Public methods
     
@@ -26,7 +26,7 @@ class LeftSideTableViewCell: UITableViewCell {
         messageBackgroundView.layer.cornerRadius = 15
         messageTextLabel.text = message.text
         personImageView.roundView()
-        if let image = senderUserDetails?.profileImage { personImageView.sd_setImage(with: URL(string: image), completed: nil) }
+        if let userProfileImage = senderUserDetails?.profileImage { personImageView.sd_setImage(with: URL(string: userProfileImage), completed: nil) }
     }
 
 }

@@ -121,7 +121,7 @@ extension ProjectDetailsViewController {
                     guard userDetails != nil else { return }
                     let meMessageUser = ConversationUser(id: userId, userDetails: userDetails!)
                     let projectMessageUser = ConversationUser(id: project.ownerId, userDetails: UserDetails(name: project.ownerName, profileImage: project.ownerImage))
-                    let myMessage = Message(text: messageText, creationDate: Date(), sender: userId)
+                    let myMessage = Message(messageType: .text, text: messageText, image: nil, creationDate: Date(), sender: userId)
                     let conversation = Conversation(conversationUsers: [meMessageUser, projectMessageUser], messageUsersIds: [userId, project.ownerId], dateStarted: Date(), messages: [myMessage])
                     DatabaseHandler.shared.addDocument(object: conversation, collection: .conversations, documentIdType: .random) {
                         Alerter.showOneButtonAlert(on: self, title: .messageSent, message: .messageIsInConversations, actionTitle: .ok, handler: nil)
