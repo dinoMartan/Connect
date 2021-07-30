@@ -25,8 +25,17 @@ struct ConversationUser: Codable {
 
 struct Message: Codable {
     
-    let text: String
+    let messageType: MessageType
+    let text: String?
+    let image: String?
     let creationDate: Date
     let sender: String
+    
+}
+
+enum MessageType: String, Codable {
+    
+    case text
+    case image
     
 }

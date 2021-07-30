@@ -26,6 +26,10 @@
 		317D82BA26AB465C00EB62EC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D82B926AB465C00EB62EC /* HomeViewController.swift */; };
 		317D82BD26AB471600EB62EC /* NavigationTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D82BC26AB471600EB62EC /* NavigationTabBarViewController.swift */; };
 		317D82C126AB4CC500EB62EC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D82C026AB4CC500EB62EC /* CurrentUser.swift */; };
+		3182154126B48802009D8DD6 /* LeftSideImageMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182154026B48802009D8DD6 /* LeftSideImageMessageTableViewCell.swift */; };
+		3182154526B491AB009D8DD6 /* RightSideImageMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182154426B491AB009D8DD6 /* RightSideImageMessageTableViewCell.swift */; };
+		3182154A26B49498009D8DD6 /* ImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182154926B49498009D8DD6 /* ImageViewerViewController.swift */; };
+		3182154E26B49627009D8DD6 /* ImageMessageTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182154D26B49627009D8DD6 /* ImageMessageTableViewCellDelegate.swift */; };
 		318DE5F526B040CA00CC6557 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DE5F426B040CA00CC6557 /* UIImageExtension.swift */; };
 		318DE62026B0974100CC6557 /* ConversationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DE61E26B0974100CC6557 /* ConversationsTableViewCell.swift */; };
 		318DE62826B15C8600CC6557 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DE62726B15C8600CC6557 /* ChatViewController.swift */; };
@@ -89,6 +93,10 @@
 		317D82B926AB465C00EB62EC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		317D82BC26AB471600EB62EC /* NavigationTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabBarViewController.swift; sourceTree = "<group>"; };
 		317D82C026AB4CC500EB62EC /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		3182154026B48802009D8DD6 /* LeftSideImageMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideImageMessageTableViewCell.swift; sourceTree = "<group>"; };
+		3182154426B491AB009D8DD6 /* RightSideImageMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSideImageMessageTableViewCell.swift; sourceTree = "<group>"; };
+		3182154926B49498009D8DD6 /* ImageViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerViewController.swift; sourceTree = "<group>"; };
+		3182154D26B49627009D8DD6 /* ImageMessageTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMessageTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		318DE5F426B040CA00CC6557 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		318DE61E26B0974100CC6557 /* ConversationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsTableViewCell.swift; sourceTree = "<group>"; };
 		318DE62726B15C8600CC6557 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +238,23 @@
 			path = CurrentUser;
 			sourceTree = "<group>";
 		};
+		3182153F26B487E7009D8DD6 /* ImageMessagesCells */ = {
+			isa = PBXGroup;
+			children = (
+				3182154026B48802009D8DD6 /* LeftSideImageMessageTableViewCell.swift */,
+				3182154426B491AB009D8DD6 /* RightSideImageMessageTableViewCell.swift */,
+			);
+			path = ImageMessagesCells;
+			sourceTree = "<group>";
+		};
+		3182154826B49486009D8DD6 /* ImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				3182154926B49498009D8DD6 /* ImageViewerViewController.swift */,
+			);
+			path = ImageViewer;
+			sourceTree = "<group>";
+		};
 		318DE61D26B0972B00CC6557 /* ConversationsTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,19 +263,21 @@
 			path = ConversationsTableView;
 			sourceTree = "<group>";
 		};
-		318DE62B26B15CFC00CC6557 /* ChatTableView */ = {
+		318DE62B26B15CFC00CC6557 /* TextMessagesCells */ = {
 			isa = PBXGroup;
 			children = (
 				318DE62C26B15D2D00CC6557 /* LeftSideTableViewCell.swift */,
 				318DE63026B15D3700CC6557 /* RightSideTableViewCell.swift */,
 			);
-			path = ChatTableView;
+			path = TextMessagesCells;
 			sourceTree = "<group>";
 		};
 		31E7B5B926AC1D9A0062CFEC /* Conversations */ = {
 			isa = PBXGroup;
 			children = (
-				318DE62B26B15CFC00CC6557 /* ChatTableView */,
+				3182154826B49486009D8DD6 /* ImageViewer */,
+				3182153F26B487E7009D8DD6 /* ImageMessagesCells */,
+				318DE62B26B15CFC00CC6557 /* TextMessagesCells */,
 				318DE61D26B0972B00CC6557 /* ConversationsTableView */,
 				31E7B5BB26AC1DC70062CFEC /* Conversations.storyboard */,
 				31E7B5C126AC1E0D0062CFEC /* ConversationsViewController.swift */,
@@ -423,6 +450,7 @@
 				31F72B9926ADBE690094892E /* HomeTableViewCellDelegate.swift */,
 				31F72B9D26AEC5F40094892E /* ProjectEditorViewControllerDelegate.swift */,
 				3141E46026AF784D007B2C4C /* ProfileSettingsTableViewCellDelegate.swift */,
+				3182154D26B49627009D8DD6 /* ImageMessageTableViewCellDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -577,6 +605,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				318DE62D26B15D2D00CC6557 /* LeftSideTableViewCell.swift in Sources */,
+				3182154526B491AB009D8DD6 /* RightSideImageMessageTableViewCell.swift in Sources */,
 				3141E44F26AF5AC6007B2C4C /* ChangesSettingTableViewCell.swift in Sources */,
 				318DE63826B181C200CC6557 /* UIViewExtension.swift in Sources */,
 				31E86DF326AAC99A00A96947 /* LoginViewController.swift in Sources */,
@@ -600,11 +629,14 @@
 				31E7B5FB26AC34260062CFEC /* ProjectEditorViewController.swift in Sources */,
 				318DE62826B15C8600CC6557 /* ChatViewController.swift in Sources */,
 				317D82BA26AB465C00EB62EC /* HomeViewController.swift in Sources */,
+				3182154A26B49498009D8DD6 /* ImageViewerViewController.swift in Sources */,
 				31E86DF726AAC9D500A96947 /* StoryboardExtension.swift in Sources */,
 				31E7B62126AC4C630062CFEC /* WSTagsFieldExtension.swift in Sources */,
 				31E7B5C526AC1E2A0062CFEC /* MyProjectsViewController.swift in Sources */,
+				3182154126B48802009D8DD6 /* LeftSideImageMessageTableViewCell.swift in Sources */,
 				315A055926ACBC3700853C6B /* DatabaseDocument.swift in Sources */,
 				317D82AE26AB441800EB62EC /* UIColorExtension.swift in Sources */,
+				3182154E26B49627009D8DD6 /* ImageMessageTableViewCellDelegate.swift in Sources */,
 				31F72B9A26ADBE690094892E /* HomeTableViewCellDelegate.swift in Sources */,
 				318DE63B26B1A06000CC6557 /* DateExtension.swift in Sources */,
 				317D82BD26AB471600EB62EC /* NavigationTabBarViewController.swift in Sources */,

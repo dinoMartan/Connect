@@ -19,6 +19,7 @@ final class Alerter {
         case areYouSure = "Are you sure?"
         case signOut = "Sign out"
         case messageSent = "Message sent!"
+        case selectType = "Select type"
         
     }
 
@@ -35,6 +36,7 @@ final class Alerter {
         case deleteProjectQuestion = "Deleting the project cannot be undone."
         case areYouSure = "Are you sure?"
         case messageIsInConversations = "Now you can chat with the user in Conversations tab!"
+        case selectImageType = "Select image type"
         
     }
 
@@ -44,6 +46,8 @@ final class Alerter {
         case yes = "YES"
         case delete = "DELETE"
         case cancel = "CANCEL"
+        case camera = "Camera"
+        case library = "Library"
         
     }
     
@@ -73,6 +77,18 @@ final class Alerter {
         let actionTwo = UIAlertAction(title: buttonTwoTitle.rawValue, style: buttonTwoStyle, handler: handler)
         alert.addAction(actionOne)
         alert.addAction(actionTwo)
+        viewController.present(alert, animated: true, completion: nil)
+    }
+    
+    static func showThreeButtonAlert(on viewController: UIViewController, alerterStyle: UIAlertController.Style, title: AlertTitle?, message: AlertMessage?, buttonOneTitle: AlertButton, buttonOneStyle: UIAlertAction.Style, buttonTwoTitle: AlertButton, buttonTwoStyle: UIAlertAction.Style, buttonThreeTitle: AlertButton, buttonThreeStyle: UIAlertAction.Style, buttonOnehandler: ((UIAlertAction) -> Void)?, buttonTwohandler: ((UIAlertAction) -> Void)?, buttonThreehandler: ((UIAlertAction) -> Void)?) {
+        let alert = UIAlertController(title: title?.rawValue, message: message?.rawValue, preferredStyle: alerterStyle)
+        let actionOne = UIAlertAction(title: buttonOneTitle.rawValue, style: buttonOneStyle, handler: buttonOnehandler)
+        let actionTwo = UIAlertAction(title: buttonTwoTitle.rawValue, style: buttonTwoStyle, handler: buttonTwohandler)
+        let actionThree = UIAlertAction(title: buttonThreeTitle.rawValue, style: buttonThreeStyle, handler: buttonThreehandler)
+        
+        alert.addAction(actionOne)
+        alert.addAction(actionTwo)
+        alert.addAction(actionThree)
         viewController.present(alert, animated: true, completion: nil)
     }
     
